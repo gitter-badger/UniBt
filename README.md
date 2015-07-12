@@ -137,6 +137,7 @@ public void DebugMessage()
 }
 ```
 This example demonstrates the following features:
+
 - Services just as an callback
 - Services are perform updates of various sorts that need to occur periodically
 
@@ -152,7 +153,7 @@ public System.IDisposable Wait()
 }
 ```
 This example demonstrates the following features:
+
 - The task loop as an event stream
 - Composable event streams
 - Easy handling of time based operations
-
