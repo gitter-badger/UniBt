@@ -40,10 +40,9 @@ namespace UBT.Example
         #region Tasks
         public IDisposable Wait()
         {
-            this.UpdateAsObservable();
-            var stream = Observable.Timer(TimeSpan.FromSeconds(2))
+            var subscription = Observable.Timer(TimeSpan.FromSeconds(2))
                 .Subscribe(_ => this.FinishExecute(true));
-            return stream;
+            return subscription;
         }
 
         public IDisposable DebugMessage()
