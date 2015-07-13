@@ -12,7 +12,7 @@ This is the source code page for the **UniBt on BitBucket**.
 With the UniBt source code, you can modifiy the source code in any way imaginable and share your changes with others!
 Before continuing, check out [this article](#what-is-unibt).
 
-**Welcome your pull request!**
+**Welcome your pull requests!**
 
 The reason for uploading this source code to BitBucket, it is because I think the UniBt's source code to your many contributions to be upgraded.
 Please be to the many pull request!
