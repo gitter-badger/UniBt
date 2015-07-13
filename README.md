@@ -11,7 +11,7 @@ This is the source code page for the **UniBt on Git**.
 With the UniBt source code, you can modifiy the source code in any way imaginable and share your changes with others!
 Before continuing, check out [this article](#what-is-unibt).
 
-**I welcome your pull request!**
+**Welcome your pull request!**
 
 The reason for uploading this source code to Git, it is because I think the UniBt's source code to your many contributions to be upgraded.
 Please be to the many pull request!
