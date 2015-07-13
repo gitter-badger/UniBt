@@ -4,20 +4,32 @@ So during the development period, it will **NEVER RECOMMEND** that you apply the
 If the formal version is released, please review then.
 
 
-# UBT - Behavior Trees for Unity
-Created by EjongHyuck([@HansMakart](https://twitter.com/HansMakart))
+# UniBt - UE4 Behavior Trees style for Unity
+**Welcome to the UniBt source code!**
+
+This is the source code page for the **UniBt on Git**.
+With the UniBt source code, you can modifiy the source code in any way imaginable and share your changes with others!
+Before continuing, check out [this article](#what-is-unibt).
+
+**I welcome your pull request!**
+
+The reason for uploading this source code to Git, it is because I think the UniBt's source code to your many contributions to be upgraded.
+Please be to the many pull request!
+I always look forward to your pull request.
+
+Created by EjongHyuck([@HansMakart](https://twitter.com/HansMakart)).
 
 
 ## Table of Contents
-- [What is UBT?](#what-is-ubt)
+- [What is UniBt?](#what-is-unibt)
 - [Platforms](#platforms)
 - [Download](#download)
 
 
-## What is UBT?
-UBT(Unity Behavior Trees) is a reimplementation in Unreal Engine behavior trees style.
-The "standard" behavior trees are good but every frames must be a lot of work and It is complex due to the need to create a number of nodes to confirm the condition.
-This library is to pursue behavior trees style of the Unreal Engine 4.
+## What is UniBt?
+UniBt(Unity Behavior Trees) is a reimplementation in UE4 behavior trees style.
+The "standard" behavior trees are good but every frames must be a lot of work and it is complex due to the need to create a number of nodes to confirm the condition.
+This library is to pursue behavior trees style of the UE4.
 
 Sample video => [Youtube](https://www.youtube.com/watch?v=vBdgVHykTO8)
 
@@ -27,4 +39,4 @@ Supported platforms are PC/WebGL/etc and the library is fully supported on Unity
 
 
 ## Download
-You can download from [here](https://bitbucket.org/ejonghyuck/unitybehaviortree/src/ff163fd6eb69c7d7170734ccad24e4781c8d8306/Packages/UBT.v.0.1.2.unitypackage?at=master).
+You can download from [here](https://bitbucket.org/ejonghyuck/unitybehaviortree/src/ff163fd6eb69c7d7170734ccad24e4781c8d8306/Packages/UniBt.v.0.1.2.unitypackage?at=master).
