@@ -3,7 +3,7 @@ using UnityEditor;
 using System.Collections;
 using System.Runtime.InteropServices;
 
-namespace UBT.Editor
+namespace UniBt.Editor
 {
 	[CustomEditor(typeof(Node), true)]
 	public class NodeInspector : UnityEditor.Editor

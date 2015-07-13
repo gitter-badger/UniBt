@@ -4,7 +4,7 @@ using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace UBT.Editor
+namespace UniBt.Editor
 {
     public class WizardWindow : EditorWindow
     {

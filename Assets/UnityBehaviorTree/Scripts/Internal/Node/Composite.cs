@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace UBT
+namespace UniBt
 {
     public class Composite : Node
     {

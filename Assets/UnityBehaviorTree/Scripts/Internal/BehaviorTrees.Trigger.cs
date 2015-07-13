@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace UBT.Trigger
+namespace UniBt.Triggers
 {
     public static class BehaviorTreesTriggerExtensions
     {

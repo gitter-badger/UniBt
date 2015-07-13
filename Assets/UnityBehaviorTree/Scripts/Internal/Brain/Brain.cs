@@ -3,9 +3,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UniRx;
-using UniRx.Triggers;
 
-namespace UBT
+namespace UniBt
 {
     [DisallowMultipleComponent]
     [AddComponentMenu("Unity Behavior Tree/Behavior Tree Brain")]

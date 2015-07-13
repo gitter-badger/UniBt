@@ -2,7 +2,7 @@
 using UnityEditor;
 using System.Collections.Generic;
 
-namespace UBT.Editor
+namespace UniBt.Editor
 {
     public class ScriptSelector : ScriptableWizard
     {

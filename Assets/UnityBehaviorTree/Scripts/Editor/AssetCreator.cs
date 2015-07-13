@@ -2,7 +2,7 @@
 using UnityEditor;
 using System.Collections;
 
-namespace UBT.Editor
+namespace UniBt.Editor
 {
     public static class AssetCreator
     {

@@ -3,7 +3,7 @@ using UnityEditor;
 using System.Reflection;
 using System.Collections.Generic;
 
-namespace UBT.Editor
+namespace UniBt.Editor
 {
     [CustomEditor(typeof(Decorator), true)]
     public class DecoratorInspector : UnityEditor.Editor

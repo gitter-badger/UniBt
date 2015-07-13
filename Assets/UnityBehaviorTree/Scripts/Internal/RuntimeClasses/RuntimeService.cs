@@ -2,7 +2,7 @@
 using System.Collections;
 using UniRx;
 
-namespace UBT
+namespace UniBt
 {
     public class RuntimeService
     {

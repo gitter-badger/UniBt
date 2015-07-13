@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace UBT
+namespace UniBt
 {
     public class Node : ScriptableObject
     {

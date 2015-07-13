@@ -2,7 +2,7 @@
 using UnityEditor;
 using System.Collections;
 
-namespace UBT.Editor
+namespace UniBt.Editor
 {
     [CustomEditor(typeof(Task))]
     public class TaskInspector : NodeInspector

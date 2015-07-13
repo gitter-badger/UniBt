@@ -3,7 +3,7 @@ using System.Collections;
 using UniRx;
 using UniRx.Triggers;
 
-namespace UBT.Example
+namespace UniBt.Example
 {
     public class PlayerMovement : MonoBehaviour
     {

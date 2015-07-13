@@ -2,7 +2,7 @@
 using System;
 using System.Collections;
 
-namespace UBT
+namespace UniBt
 {
 	public class Service : ScriptableObject
 	{

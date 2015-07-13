@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UniRx;
 using UniRx.Triggers;
 
-namespace UBT
+namespace UniBt
 {
     public partial class Brain : MonoBehaviour
     {
