@@ -1,22 +1,24 @@
 # UBT - Behavior Trees for Unity
 Created by EjongHyuck([@HansMakart](https://twitter.com/HansMakart))
 
+
+## Download
 You can download from [here](https://bitbucket.org/ejonghyuck/unitybehaviortree/src/ff163fd6eb69c7d7170734ccad24e4781c8d8306/Packages/UBT.v.0.1.2.unitypackage?at=master).
 
 
 ## Table of Contents
 - [What is UBT?](#what-is-ubt)
 - [Why UBT?](#why-ubt)
-  - [UBT is Event-Driven](#ubt-is-event-driven)
-  - [Conditionals are not Leaf Nodes](#conditionals-are-not-leaf-nodes)
-  - [Special Handling for Concurrent Behaviors](#special-handling-for-concurrent-behaviors)
-     - [Why not use Parallel nodes?](#why-not-use-parallel-nodes)
-	 - [Services](#Services)
-	 - [Decorator "Observer Aborts" Property](#decorator-observer-aborts-property)
-  - [Advantage of UBT's approach to Concurrent Behaviors](#advantage-of-ubts-approach-to-concurrent-behaviors)
-     - [Clarity](#clarity)
-	 - [Ease of Debugging](#ease-of-debugging)
-	 - [Easier Optimizations](#easier-optimizations)
+    - [UBT is Event-Driven](#ubt-is-event-driven)
+    - [Conditionals are not Leaf Nodes](#conditionals-are-not-leaf-nodes)
+    - [Special Handling for Concurrent Behaviors](#special-handling-for-concurrent-behaviors)
+        - [Why not use Parallel nodes?](#why-not-use-parallel-nodes)
+        - [Services](#Services)
+        - [Decorator "Observer Aborts" Property](#decorator-observer-aborts-property)
+    - [Advantage of UBT's approach to Concurrent Behaviors](#advantage-of-ubts-approach-to-concurrent-behaviors)
+        - [Clarity](#clarity)
+        - [Ease of Debugging](#ease-of-debugging)
+            - [Easier Optimizations](#easier-optimizations)
 - [Why using UniRx?](#why-using-unirx)
 - [Introduction](#introduction)
 
