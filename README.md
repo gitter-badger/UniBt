@@ -1,6 +1,8 @@
 # UBT - Behavior Trees for Unity
 Created by EjongHyuck([@HansMakart](https://twitter.com/HansMakart))
 
+You can download from [here](https://bitbucket.org/ejonghyuck/unitybehaviortree/src/ff163fd6eb69c7d7170734ccad24e4781c8d8306/Packages/UBT.v.0.1.2.unitypackage?at=master).
+
 
 ## Table of Contents
 - [What is UBT?](#what-is-ubt)
