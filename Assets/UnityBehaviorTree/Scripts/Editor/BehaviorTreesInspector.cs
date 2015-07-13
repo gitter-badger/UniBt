@@ -4,8 +4,8 @@ using System.Collections;
 
 namespace UBT.Editor
 {
-	[CustomEditor(typeof(BehaviorTree))]
-	public class BehaviorBrainInspector : NodeInspector
+	[CustomEditor(typeof(BehaviorTrees))]
+	public class BehaviorTreesInspector : NodeInspector
 	{
 		public override void OnEnable()
 		{
@@ -34,7 +34,7 @@ namespace UBT.Editor
 				rect.Contains(Event.current.mousePosition))
 			{
 				BehaviorEditor.ShowEditorWindow();
-				BehaviorEditor.SelectBehaviorBrain(target as BehaviorTree);
+				BehaviorEditor.SelectBehaviorTrees(target as BehaviorTrees);
 			}
 		}
 	}

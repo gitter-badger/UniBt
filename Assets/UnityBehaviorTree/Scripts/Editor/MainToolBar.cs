@@ -50,7 +50,7 @@ namespace UBT.Editor
 
                 menu.AddItem(new GUIContent("[Craete New]"), false, delegate ()
                 {
-                    BehaviorTree bt = AssetCreator.CreateAsset<BehaviorTree>(true);
+                    BehaviorTrees bt = AssetCreator.CreateAsset<BehaviorTrees>(true);
                     if (bt != null)
                     {
                         bt.Name = bt.name;
@@ -60,21 +60,21 @@ namespace UBT.Editor
                         root.Name = "Root";
 
                         AssetDatabase.SaveAssets();
-                        BehaviorEditor.SelectBehaviorBrain(bt);
+                        BehaviorEditor.SelectBehaviorTrees(bt);
                     }
                 });
                 menu.ShowAsContext();
             }
         }
 
-        private void SelectBehaviorBrainMenu(BehaviorTree bt, ref GenericMenu menu)
+        private void SelectBehaviorBrainMenu(BehaviorTrees bt, ref GenericMenu menu)
         {
             if (bt != null)
             {
                 GUIContent content = new GUIContent(bt.name);
                 menu.AddItem(content, false, delegate ()
                 {
-                    BehaviorEditor.SelectBehaviorBrain(bt);
+                    BehaviorEditor.SelectBehaviorTrees(bt);
                 });
             }
         }

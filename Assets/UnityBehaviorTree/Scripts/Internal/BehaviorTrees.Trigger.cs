@@ -2,7 +2,7 @@
 
 namespace UBT.Trigger
 {
-    public static class BehaviorTreeTriggerExtensions
+    public static class BehaviorTreesTriggerExtensions
     {
         public static void FinishExecute(this Component component, bool value)
         {
