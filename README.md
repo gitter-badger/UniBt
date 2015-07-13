@@ -8,13 +8,13 @@ If the formal version(or development has been a lot of versions) is released, th
 # UniBt - UE4 Behavior Trees style for Unity
 **Welcome to the UniBt source code!**
 
-This is the source code page for the **UniBt on Git**.
+This is the source code page for the **UniBt on BitBucket**.
 With the UniBt source code, you can modifiy the source code in any way imaginable and share your changes with others!
 Before continuing, check out [this article](#what-is-unibt).
 
 **Welcome your pull request!**
 
-The reason for uploading this source code to Git, it is because I think the UniBt's source code to your many contributions to be upgraded.
+The reason for uploading this source code to BitBucket, it is because I think the UniBt's source code to your many contributions to be upgraded.
 Please be to the many pull request!
 I always look forward to your pull request.
 
@@ -28,9 +28,9 @@ Created by EjongHyuck([@HansMakart](https://twitter.com/HansMakart)).
 
 
 ## What is UniBt?
-UniBt(Unity Behavior Trees) is a reimplementation in UE4 behavior trees style.
+UniRx is Behavior Tree based open source([MIT License](https://en.wikipedia.org/wiki/MIT_License)) asset that has been re-implemented in UE4 behavior trees style to suit the Unity environment.
 The "standard" behavior trees are good but every frames must be a lot of work and it is complex due to the need to create a number of nodes to confirm the condition.
-This library is to pursue behavior trees style of the UE4.
+This library is pursuing a behavior trees structure of UE4 to solve such problems.
 
 Sample video => [Youtube](https://www.youtube.com/watch?v=vBdgVHykTO8)
 
