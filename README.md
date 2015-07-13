@@ -29,7 +29,7 @@ Created by EjongHyuck([@HansMakart](https://twitter.com/HansMakart)).
 ## What is UniBt?
 UniBt(Unity Behavior Trees) is a reimplementation in UE4 behavior trees style.
 The "standard" behavior trees are good but every frames must be a lot of work and it is complex due to the need to create a number of nodes to confirm the condition.
-This library is to pursue behavior trees style of the UE4.
+
 
 Sample video => [Youtube](https://www.youtube.com/watch?v=vBdgVHykTO8)
 
