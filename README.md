@@ -30,11 +30,7 @@ Created by EjongHyuck([@HansMakart](https://twitter.com/HansMakart)).
 ## What is UniBt?
 UniRx is behavior trees structure based open source([MIT License](https://en.wikipedia.org/wiki/MIT_License)) asset that has been re-implemented in UE4 behavior trees style to suit the Unity environment.
 The "standard" behavior trees are good but every frames must be a lot of work and it is complex due to the need to create a number of nodes to confirm the condition.
-<<<<<<< HEAD
-
-=======
 This library is pursuing a behavior trees structure of UE4 to solve such problems.
->>>>>>> fecaf95873531eabe9f462e11a6b8abe0e1ebab8
 
 Sample video => [Youtube](https://www.youtube.com/watch?v=vBdgVHykTO8)
 
@@ -44,4 +40,4 @@ Supported platforms are PC/WebGL/etc and the library is fully supported on Unity
 
 
 ## Download
-You can download from [here](https://bitbucket.org/ejonghyuck/unitybehaviortree/src/ff163fd6eb69c7d7170734ccad24e4781c8d8306/Packages/UniBt.v.0.1.2.unitypackage?at=master).
+You can download from [here](https://bitbucket.org/ejonghyuck/unibt/src/d1b022f6c99cdeb80599b5cd30ed5803f460f5ec/Packages/UBT.v.0.1.3.unitypackage?at=master).
