@@ -30,6 +30,8 @@ The "standard" behavior trees are good but every frames must be a lot of work an
 This library is to pursue behavior trees style of the Unreal Engine.
 Supported platforms are PC/WebGL/etc and the library is fully supported on Unity 5. *(Further testing is required.)*
 
+Sample video => [Youtube](https://www.youtube.com/watch?v=vBdgVHykTO8)
+
 
 ## Why UBT?
 There are three critical ways in which the UBT implementation of Behavior Trees differs from "standard" behavior trees.
