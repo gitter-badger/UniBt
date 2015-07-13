@@ -9,12 +9,9 @@ Created by EjongHyuck([@HansMakart](https://twitter.com/HansMakart))
 
 
 ## Table of Contents
-- [Download](#download)
 - [What is UBT?](#what-is-ubt)
 - [Platforms](#platforms)
-
-## Download
-You can download from [here](https://bitbucket.org/ejonghyuck/unitybehaviortree/src/ff163fd6eb69c7d7170734ccad24e4781c8d8306/Packages/UBT.v.0.1.2.unitypackage?at=master).
+- [Download](#download)
 
 
 ## What is UBT?
@@ -27,3 +24,7 @@ Sample video => [Youtube](https://www.youtube.com/watch?v=vBdgVHykTO8)
 
 ## Platforms
 Supported platforms are PC/WebGL/etc and the library is fully supported on Unity 5. *(Further testing is required.)*
+
+
+## Download
+You can download from [here](https://bitbucket.org/ejonghyuck/unitybehaviortree/src/ff163fd6eb69c7d7170734ccad24e4781c8d8306/Packages/UBT.v.0.1.2.unitypackage?at=master).
