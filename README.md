@@ -26,8 +26,8 @@ Created by EjongHyuck([@HansMakart](https://twitter.com/HansMakart)).
 Table of Contents
 -----------------
 - [What is UniBt?](#what-is-unibt)
-- [Platforms](#platforms)
-- [Download](#download)
+    - [Platforms](#platforms)
+    - [Download](#download)
 - [Reference](#reference)
 - [Developer Info](#developer-info)
 - [License](#license)
@@ -42,14 +42,12 @@ This library is pursuing a behavior trees structure of UE4 to solve such problem
 Sample video => [Youtube](https://www.youtube.com/watch?v=vBdgVHykTO8)
 
 
-Platforms
----------
+### Platforms
 Supported platforms are PC/WebGL/etc and the library is fully supported on Unity 5.  
 *(Further testing is required.)*
 
 
-Download
---------
+### Download
 You can download from [here](https://bitbucket.org/ejonghyuck/unibt/src/d1b022f6c99cdeb80599b5cd30ed5803f460f5ec/Packages/UBT.v.0.1.3.unitypackage?at=master).
 
 
