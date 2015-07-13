@@ -3,20 +3,25 @@ Created by EjongHyuck([@HansMakart](https://twitter.com/HansMakart))
 
 
 ## Table of Contents
+- [Download](#download)
 - [What is UBT?](#what-is-ubt)
 - [Why UBT?](#why-ubt)
-  - [UBT is Event-Driven](#ubt-is-event-driven)
-  - [Conditionals are not Leaf Nodes](#conditionals-are-not-leaf-nodes)
-  - [Special Handling for Concurrent Behaviors](#special-handling-for-concurrent-behaviors)
-     - [Why not use Parallel nodes?](#why-not-use-parallel-nodes)
-	 - [Services](#Services)
-	 - [Decorator "Observer Aborts" Property](#decorator-observer-aborts-property)
-  - [Advantage of UBT's approach to Concurrent Behaviors](#advantage-of-ubts-approach-to-concurrent-behaviors)
-     - [Clarity](#clarity)
-	 - [Ease of Debugging](#ease-of-debugging)
-	 - [Easier Optimizations](#easier-optimizations)
+    - [UBT is Event-Driven](#ubt-is-event-driven)
+    - [Conditionals are not Leaf Nodes](#conditionals-are-not-leaf-nodes)
+    - [Special Handling for Concurrent Behaviors](#special-handling-for-concurrent-behaviors)
+        - [Why not use Parallel nodes?](#why-not-use-parallel-nodes)
+        - [Services](#Services)
+        - [Decorator "Observer Aborts" Property](#decorator-observer-aborts-property)
+    - [Advantage of UBT's approach to Concurrent Behaviors](#advantage-of-ubts-approach-to-concurrent-behaviors)
+        - [Clarity](#clarity)
+        - [Ease of Debugging](#ease-of-debugging)
+            - [Easier Optimizations](#easier-optimizations)
 - [Why using UniRx?](#why-using-unirx)
 - [Introduction](#introduction)
+
+
+## Download
+You can download from [here](https://bitbucket.org/ejonghyuck/unitybehaviortree/src/ff163fd6eb69c7d7170734ccad24e4781c8d8306/Packages/UBT.v.0.1.2.unitypackage?at=master).
 
 
 ## What is UBT?
@@ -24,6 +29,8 @@ UBT(Unity Behavior Trees) is a reimplementation in Unreal Engine behavior trees 
 The "standard" behavior trees are good but every frames must be a lot of work and It is complex due to the need to create a number of nodes to confirm the condition.
 This library is to pursue behavior trees style of the Unreal Engine.
 Supported platforms are PC/WebGL/etc and the library is fully supported on Unity 5. *(Further testing is required.)*
+
+Sample video => [Youtube](https://www.youtube.com/watch?v=vBdgVHykTO8)
 
 
 ## Why UBT?
