@@ -6,11 +6,11 @@ namespace UBT.Editor
 {
     public static class AssetCreator
     {
-        [MenuItem("Assets/Create/UnityBehaviorTree/Behavior Brain")]
-        public static void CreateBehaviorBrain()
+        [MenuItem("Assets/Create/UnityBehaviorTree/Behavior Trees")]
+        public static void CreateBehaviorTrees()
         {
             // This code is borrowed from ICode(https://www.assetstore.unity3d.com/en/#!/content/13761)
-            BehaviorTree bt = AssetCreator.CreateAsset<BehaviorTree>(false);
+            BehaviorTrees bt = AssetCreator.CreateAsset<BehaviorTrees>(false);
             if (bt != null)
             {
                 bt.Name = bt.name;

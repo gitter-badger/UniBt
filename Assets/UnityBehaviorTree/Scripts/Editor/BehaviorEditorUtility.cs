@@ -46,11 +46,11 @@ namespace UBT.Editor
             return uniqueName;
         }
 
-        public static T AddNode<T>(Vector2 position, BehaviorTree bt)
+        public static T AddNode<T>(Vector2 position, BehaviorTrees bt)
         {
             if (bt == null)
             {
-                Debug.LogWarning("Can't add node to behavior tree, because the behavior tree is null.");
+                Debug.LogWarning("Can't add node to behavior tree, because the behavior trees are null.");
                 return default(T);
             }
 
@@ -66,12 +66,12 @@ namespace UBT.Editor
             if (EditorUtility.IsPersistent(bt))
                 AssetDatabase.AddObjectToAsset(node, bt);
 
-            if (node.GetType() == typeof(BehaviorTree))
+            if (node.GetType() == typeof(BehaviorTrees))
             {
                 node.position.width = 150f;
                 node.position.height = 45f;
 
-                Root root = BehaviorEditorUtility.AddNode<Root>(BehaviorEditor.center, node as BehaviorTree);
+                Root root = BehaviorEditorUtility.AddNode<Root>(BehaviorEditor.center, node as BehaviorTrees);
                 root.Name = "Root";
             }
 
@@ -79,7 +79,7 @@ namespace UBT.Editor
             return (T)(object)node;
         }
 
-        public static void DeleteNode(Node node, BehaviorTree bt)
+        public static void DeleteNode(Node node, BehaviorTrees bt)
         {
             if (node.parentNode != null)
                 node.parentNode.childNodes = ArrayUtility.Remove<Node>(node.parentNode.childNodes, node);
@@ -116,11 +116,11 @@ namespace UBT.Editor
             AssetDatabase.SaveAssets();
         }
 
-        public static T AddDecorator<T>(Node parent, BehaviorTree bt)
+        public static T AddDecorator<T>(Node parent, BehaviorTrees bt)
         {
             if (parent == null)
             {
-                Debug.LogWarning("Can't add decorator to behavior tree, because the behavior tree is null.");
+                Debug.LogWarning("Can't add decorator to behavior tree, because the behavior trees are null.");
                 return default(T);
             }
 
@@ -145,11 +145,11 @@ namespace UBT.Editor
             BehaviorEditorUtility.DestroyImmediate(decorator);
         }
 
-        public static T AddService<T>(Composite parent, BehaviorTree bt)
+        public static T AddService<T>(Composite parent, BehaviorTrees bt)
         {
             if (parent == null)
             {
-                Debug.LogWarning("Can't add service to behavior tree, because the behavior tree is null.");
+                Debug.LogWarning("Can't add service to behavior tree, because the behavior trees are null.");
                 return default(T);
             }
 

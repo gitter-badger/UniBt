@@ -10,7 +10,7 @@ namespace UBT
         public Rect position;
         public string comment;
 
-        public BehaviorTree bt
+        public BehaviorTrees bt
         {
             get { return this._bt; }
             set { this._bt = value; }
@@ -27,9 +27,9 @@ namespace UBT
             set { this._parentNode = value; }
         }
 
-        public BehaviorTree root
+        public BehaviorTrees root
         {
-            get { return parent == null && GetType() == typeof(BehaviorTree) ? this as BehaviorTree : parent.root; }
+            get { return parent == null && GetType() == typeof(BehaviorTrees) ? this as BehaviorTrees : parent.root; }
         }
 
         public string Name
@@ -90,7 +90,7 @@ namespace UBT
         [SerializeField]
         private string _name;
         [SerializeField]
-        private BehaviorTree _bt;
+        private BehaviorTrees _bt;
         [SerializeField]
         private Node[] _childNodes;
         [SerializeField]

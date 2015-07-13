@@ -6,7 +6,7 @@ using System.Linq;
 namespace UBT
 {
 	[System.Serializable]
-	public class BehaviorTree : Node
+	public class BehaviorTrees : Node
 	{
 		public Node[] nodes
 		{
@@ -25,13 +25,14 @@ namespace UBT
 		
 		public Node[] NodeRecursive
 		{
+            // This code is borrowed from ICode(https://www.assetstore.unity3d.com/en/#!/content/13761)
 			get
 			{
 				List<Node> nodeList = new List<Node>();
 				if (nodes.Length > 0)
 					nodeList.AddRange(nodes);
 				
-				foreach(BehaviorTree brain in behaviorTrees)
+				foreach(BehaviorTrees brain in behaviorTrees)
 				{
 					nodeList.AddRange(brain.NodeRecursive);
 				}
@@ -39,11 +40,12 @@ namespace UBT
 			}
 		}
 		
-		public BehaviorTree[] behaviorTrees
+		public BehaviorTrees[] behaviorTrees
 		{
+            // This code is borrowed from ICode(https://www.assetstore.unity3d.com/en/#!/content/13761)
 			get
 			{
-				return this._nodes.Where(node => node.GetType() == typeof(BehaviorTree)).Cast<BehaviorTree>().ToArray();
+				return this._nodes.Where(node => node.GetType() == typeof(BehaviorTrees)).Cast<BehaviorTrees>().ToArray();
 			}
 		}
 		

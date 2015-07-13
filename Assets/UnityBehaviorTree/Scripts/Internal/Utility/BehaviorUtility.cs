@@ -5,9 +5,9 @@ namespace UBT
 {
 	public static class BehaviorUtility
 	{
-		public static bool NodeExists(BehaviorTree brain, string name)
+		public static bool NodeExists(BehaviorTrees bt, string name)
 		{
-			BehaviorTree root = brain.root;
+			BehaviorTrees root = bt.root;
 			if (FindNode(root, name) == null)
 			{
 				return false;
@@ -15,7 +15,7 @@ namespace UBT
 			return true;
 		}
 		
-		public static Node FindNode(BehaviorTree root, string name)
+		public static Node FindNode(BehaviorTrees root, string name)
 		{
 			if (root.Name == name)
 				return root;
