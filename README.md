@@ -55,7 +55,7 @@ Reference
 ---------
 >[Behavior Trees Wiki(Wikipedia)](https://en.wikipedia.org/wiki/Behavior_Trees)
 >
->This wiki is a great way for Behavior Trees.
+>This wiki is a great way to learn behavior trees.
 >
 >[Unreal Engine | Behavior Trees](https://docs.unrealengine.com/latest/INT/Engine/AI/BehaviorTrees/index.html)
 >
