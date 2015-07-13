@@ -76,30 +76,30 @@ namespace UBT.Example
         public System.IDisposable RapidMoveToTarget()
         {
             _agent.Resume();
-            var stream = this.UpdateAsObservable()
+            var subscription = this.UpdateAsObservable()
                 .Subscribe(_ => _agent.SetDestination(_target.position));
-            return stream;
+            return subscription;
         }
 
         public System.IDisposable MoveToTargetLocation()
         {
             _agent.SetDestination(_targetLocation.Value);
 
-            var stream = this.UpdateAsObservable()
+            var subscription = this.UpdateAsObservable()
                 .Subscribe(_ =>
                 {
                     float dist = _agent.remainingDistance;
                     if (dist != Mathf.Infinity && dist == 0 && _agent.pathStatus == NavMeshPathStatus.PathComplete)
                         this.FinishExecute(true);
                 });
-            return stream;
+            return subscription;
         }
 
         public System.IDisposable MoveToHome()
         {
             _agent.SetDestination(_homeLocation);
 
-            var stream = this.UpdateAsObservable()
+            var subscription = this.UpdateAsObservable()
                 .Subscribe(_ =>
                 {
                     float dist = _agent.remainingDistance;
@@ -110,14 +110,14 @@ namespace UBT.Example
                         this.FinishExecute(true);
                     }
                 });
-            return stream;
+            return subscription;
         }
 
         public System.IDisposable Wait()
         {
-            var stream = Observable.Timer(System.TimeSpan.FromSeconds(2.5f))
+            var subscription = Observable.Timer(System.TimeSpan.FromSeconds(2.5f))
                 .Subscribe(_ => this.FinishExecute(true));
-            return stream;
+            return subscription;
         }
         #endregion
     }
