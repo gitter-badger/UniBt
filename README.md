@@ -23,7 +23,7 @@ Created by EjongHyuck([@HansMakart](https://twitter.com/HansMakart))
 UBT(Unity Behavior Trees) is a reimplementation in Unreal Engine behavior trees style.
 The "standard" behavior trees are good but every frames must be a lot of work and It is complex due to the need to create a number of nodes to confirm the condition.
 This library is to pursue behavior trees style of the Unreal Engine.
-Supported platforms are PC/WebGL/etc and the library is fully supported on Unity 5 and UniRx. *(Further testing is required.)*
+Supported platforms are PC/WebGL/etc and the library is fully supported on Unity 5. *(Further testing is required.)*
 
 
 ## Why UBT?
