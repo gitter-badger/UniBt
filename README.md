@@ -2,11 +2,8 @@
 Created by EjongHyuck([@HansMakart](https://twitter.com/HansMakart))
 
 
-## Download
-You can download from [here](https://bitbucket.org/ejonghyuck/unitybehaviortree/src/ff163fd6eb69c7d7170734ccad24e4781c8d8306/Packages/UBT.v.0.1.2.unitypackage?at=master).
-
-
 ## Table of Contents
+- [Download](#download)
 - [What is UBT?](#what-is-ubt)
 - [Why UBT?](#why-ubt)
     - [UBT is Event-Driven](#ubt-is-event-driven)
@@ -21,6 +18,10 @@ You can download from [here](https://bitbucket.org/ejonghyuck/unitybehaviortree/
             - [Easier Optimizations](#easier-optimizations)
 - [Why using UniRx?](#why-using-unirx)
 - [Introduction](#introduction)
+
+
+## Download
+You can download from [here](https://bitbucket.org/ejonghyuck/unitybehaviortree/src/ff163fd6eb69c7d7170734ccad24e4781c8d8306/Packages/UBT.v.0.1.2.unitypackage?at=master).
 
 
 ## What is UBT?
