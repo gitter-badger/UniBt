@@ -1,7 +1,8 @@
 # !!! This is just an asset that is currently in development!
 During the development there will be a lot of changes.
 So during the development period, it will **NEVER RECOMMEND** that you apply these assets to your project.
-If the formal version is released, please review then.
+
+If the formal version(or development has been a lot of versions) is released, this repository is moving to **GitHub**.
 
 
 # UniBt - UE4 Behavior Trees style for Unity
