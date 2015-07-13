@@ -28,7 +28,7 @@ Created by EjongHyuck([@HansMakart](https://twitter.com/HansMakart)).
 
 
 ## What is UniBt?
-UniRx is Behavior Tree based open source([MIT License](https://en.wikipedia.org/wiki/MIT_License)) asset that has been re-implemented in UE4 behavior trees style to suit the Unity environment.
+UniRx is behavior trees structure based open source([MIT License](https://en.wikipedia.org/wiki/MIT_License)) asset that has been re-implemented in UE4 behavior trees style to suit the Unity environment.
 The "standard" behavior trees are good but every frames must be a lot of work and it is complex due to the need to create a number of nodes to confirm the condition.
 This library is pursuing a behavior trees structure of UE4 to solve such problems.
 
