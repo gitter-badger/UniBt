@@ -15,8 +15,8 @@ Before continuing, check out [this article](#what-is-unibt).
 **Welcome your pull requests!**
 
 The reason for uploading this source code to BitBucket, it is because I think the UniBt's source code to your many contributions to be upgraded.
-Please be to the many pull request!
-I always look forward to your pull request.
+Please be to the many pull requests!
+I always look forward to your pull requests.
 
 Created by EjongHyuck([@HansMakart](https://twitter.com/HansMakart)).
 
