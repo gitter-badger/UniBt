@@ -9,8 +9,6 @@ namespace UBT.Trigger
             Brain b = component.GetComponent<Brain>();
             if (component != null && component.gameObject != null && b != null)
                 b.FinishExecute(value);
-            else
-                Debug.LogError("No brain");
         }
     }
 }
