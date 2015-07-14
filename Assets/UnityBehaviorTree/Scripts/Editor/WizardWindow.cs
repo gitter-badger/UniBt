@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Reflection;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace UniBt.Editor
@@ -9,12 +8,12 @@ namespace UniBt.Editor
     public class WizardWindow : EditorWindow
     {
         private Vector2 _scroll = Vector2.zero;
-        
+
         private void OnSelectionChange()
         {
             Repaint();
         }
-        
+
         private void OnGUI()
         {
             _scroll = GUILayout.BeginScrollView(_scroll);
@@ -52,7 +51,7 @@ namespace UniBt.Editor
             }
             GUILayout.EndScrollView();
         }
-        
+
         private void CreateCodePack(System.Type type)
         {
             GUILayout.Label("Selected \"" + type.Name + "\"", "LODLevelNotifyText");
@@ -63,17 +62,17 @@ namespace UniBt.Editor
             bool created = DrawCreateButton(!(decos.Count > 0) && !(decos.Count > 0) && !(tasks.Count > 0));
             if (decos.Count > 0)
             {
-                if (BehaviorEditorUtility.DrawHeader("Decorators", false))
+                if (BehaviorTreesEditorUtility.DrawHeader("Decorators", false))
                     DrawMethods(decos);
             }
             if (servs.Count > 0)
             {
-                if (BehaviorEditorUtility.DrawHeader("Services", false))
+                if (BehaviorTreesEditorUtility.DrawHeader("Services", false))
                     DrawMethods(servs);
             }
             if (tasks.Count > 0)
             {
-                if (BehaviorEditorUtility.DrawHeader("Tasks", false))
+                if (BehaviorTreesEditorUtility.DrawHeader("Tasks", false))
                     DrawMethods(tasks);
             }
             if (created)
@@ -81,7 +80,7 @@ namespace UniBt.Editor
                 CreatePrefab(type, "Code Pack");
             }
         }
-        
+
         private void DrawMethods(List<MethodInfo> miList)
         {
             if (miList == null)
@@ -105,7 +104,7 @@ namespace UniBt.Editor
             GUILayout.Space(3f);
             GUILayout.EndHorizontal();
         }
-        
+
         private bool DrawCreateButton(bool disabled)
         {
             EditorGUILayout.HelpBox("You can create a new prefab by selecting one Unity Behavior Tree script in the Project View window, then clicking \"Create\".", MessageType.Info);
@@ -118,7 +117,7 @@ namespace UniBt.Editor
             EditorGUI.EndDisabledGroup();
             return value;
         }
-        
+
         private int GetSelectedScriptsCount()
         {
             if (Selection.objects != null && Selection.objects.Length > 0)
@@ -128,7 +127,7 @@ namespace UniBt.Editor
             }
             return 0;
         }
-        
+
         private Object GetSelectedScript()
         {
             if (Selection.objects != null && Selection.objects.Length > 0)
@@ -141,7 +140,7 @@ namespace UniBt.Editor
             }
             return null;
         }
-        
+
         private List<MethodInfo> GetMethodInfos(System.Type scriptType, System.Type returnType)
         {
             List<MethodInfo> miList = new List<MethodInfo>();
@@ -162,7 +161,7 @@ namespace UniBt.Editor
 
             return miList;
         }
-        
+
         private void CreatePrefab(System.Type type, string name)
         {
             string path = EditorUtility.SaveFilePanelInProject("Save As", "New " + name + ".prefab", "prefab", "Save " + name + " prefab as...", "Assets/");

@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEditor;
-using System.Collections;
 
 namespace UniBt.Editor
 {
@@ -14,7 +13,7 @@ namespace UniBt.Editor
             if (bt != null)
             {
                 bt.Name = bt.name;
-                Root root = BehaviorEditorUtility.AddNode<Root>(BehaviorEditor.center, bt);
+                Root root = BehaviorTreesEditorUtility.AddNode<Root>(BehaviorTreesEditor.center, bt);
                 bt.rootNode = root;
                 root.Name = "Root";
                 AssetDatabase.SaveAssets();

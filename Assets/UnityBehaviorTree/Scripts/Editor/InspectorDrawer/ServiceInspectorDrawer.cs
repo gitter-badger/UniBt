@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using UnityEditor;
-using System.Collections;
 
 namespace UniBt.Editor
 {
     [CustomEditor(typeof(Service), true)]
-    public class ServiceInspector : UnityEditor.Editor
+    public class ServiceInspectorDrawer : UnityEditor.Editor
     {
         protected Service service;
 
@@ -17,31 +16,31 @@ namespace UniBt.Editor
         public override void OnInspectorGUI()
         {
             string name = service.Name;
-            BehaviorEditorUtility.BeginInspectorGUI(ref name);
+            BehaviorTreesEditorUtility.BeginInspectorGUI(ref name);
             if (name != service.Name)
             {
                 service.Name = name;
                 AssetDatabase.SaveAssets();
             }
             GUILayout.Space(7f);
-            if (BehaviorEditorUtility.DrawHeader("Target Code", false))
+            if (BehaviorTreesEditorUtility.DrawHeader("Target Code", false))
             {
-                BehaviorEditorUtility.DrawTargetScript(OnSelected, serializedObject);
-                if (service.targetScript != null && BehaviorEditorUtility.DrawTargetMethod(service.targetScript.GetType(), typeof(void), ref service.targetMethod))
+                BehaviorTreesEditorUtility.DrawTargetScript(OnSelected, serializedObject);
+                if (service.targetScript != null && BehaviorTreesEditorUtility.DrawTargetMethod(service.targetScript.GetType(), typeof(void), ref service.targetMethod))
                 {
                     UpdateName();
                     UpdateComment();
-                    BehaviorEditor.RepaintAll();
+                    BehaviorTreesEditor.RepaintAll();
                     AssetDatabase.SaveAssets();
                     EditorGUILayout.Space();
                 }
             }
             GUILayout.Space(7f);
-            if (BehaviorEditorUtility.DrawHeader("Service", false))
+            if (BehaviorTreesEditorUtility.DrawHeader("Service", false))
             {
                 DrawTick();
             }
-            BehaviorEditorUtility.EndInspectorGUI(service);
+            BehaviorTreesEditorUtility.EndInspectorGUI(service);
         }
 
         private void OnSelected(Object obj)

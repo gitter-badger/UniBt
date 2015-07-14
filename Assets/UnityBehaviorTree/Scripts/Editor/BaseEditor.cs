@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEditor;
-using System.Collections;
 
 namespace UniBt.Editor
 {
@@ -88,6 +87,7 @@ namespace UniBt.Editor
 
         private void DrawLine(Vector2 p1, Vector2 p2)
         {
+            // This code is borrowed from ICode(https://www.assetstore.unity3d.com/en/#!/content/13761)
             GL.Vertex(p1);
             GL.Vertex(p2);
         }
@@ -100,15 +100,15 @@ namespace UniBt.Editor
 
             Rect btRect = new Rect(_canvasSize);
             btRect.x += Mathf.Round(_scrollPosition.x);
-            btRect.y += Mathf.Round(_scrollPosition.y) + _canvasSize.height - BehaviorEditorStyles.btLabel.CalcSize(new GUIContent("BEHAVIOR TREE")).y * 1.3f;
-            GUI.Label(btRect, "BEHAVIOR TREE", BehaviorEditorStyles.btLabel);
+            btRect.y += Mathf.Round(_scrollPosition.y) + _canvasSize.height - BehaviorTreesEditorStyles.btLabel.CalcSize(new GUIContent("BEHAVIOR TREE")).y * 1.3f;
+            GUI.Label(btRect, "BEHAVIOR TREE", BehaviorTreesEditorStyles.btLabel);
 
             if (EditorApplication.isPlayingOrWillChangePlaymode)
             {
                 Rect simulatingRect = new Rect(_canvasSize);
                 simulatingRect.x += Mathf.Round(_scrollPosition.x);
-                simulatingRect.y += Mathf.Round(_scrollPosition.y) - BehaviorEditorStyles.btLabel.CalcSize(new GUIContent("SIMULATING")).y * 0.3f;
-                GUI.Label(simulatingRect, "SIMULATING", BehaviorEditorStyles.simulatingLabel);
+                simulatingRect.y += Mathf.Round(_scrollPosition.y) - BehaviorTreesEditorStyles.btLabel.CalcSize(new GUIContent("SIMULATING")).y * 0.3f;
+                GUI.Label(simulatingRect, "SIMULATING", BehaviorTreesEditorStyles.simulatingLabel);
             }
 
             GUI.EndScrollView();

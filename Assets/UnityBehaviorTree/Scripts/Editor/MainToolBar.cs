@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEditor;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace UniBt.Editor
@@ -21,16 +20,16 @@ namespace UniBt.Editor
 
         private void SelectGameObject()
         {
-            if (GUILayout.Button(BehaviorEditor.activeGameObject != null ? BehaviorEditor.activeGameObject.name : "[None Selected]", EditorStyles.toolbarDropDown, GUILayout.Width(100)))
+            if (GUILayout.Button(BehaviorTreesEditor.activeGameObject != null ? BehaviorTreesEditor.activeGameObject.name : "[None Selected]", EditorStyles.toolbarDropDown, GUILayout.Width(100)))
             {
                 GenericMenu toolsMenu = new GenericMenu();
-                List<Brain> brains = BehaviorEditorUtility.FindInScene<Brain>();
+                List<Brain> brains = BehaviorTreesEditorUtility.FindInScene<Brain>();
                 foreach (Brain brain in brains)
                 {
                     GameObject gameObject = brain.gameObject;
                     toolsMenu.AddItem(new GUIContent(gameObject.name), false, delegate ()
                     {
-                        BehaviorEditor.SelectGameObject(gameObject);
+                        BehaviorTreesEditor.SelectGameObject(gameObject);
                     });
                 }
                 toolsMenu.ShowAsContext();
@@ -39,14 +38,14 @@ namespace UniBt.Editor
 
         private void SelectBehaviorBrain()
         {
-            GUIContent content = new GUIContent(BehaviorEditor.active != null ? BehaviorEditor.active.name : "[None Selected]");
+            GUIContent content = new GUIContent(BehaviorTreesEditor.active != null ? BehaviorTreesEditor.active.name : "[None Selected]");
             float width = EditorStyles.toolbarDropDown.CalcSize(content).x;
             width = Mathf.Clamp(width, 100f, width);
             if (GUILayout.Button(content, EditorStyles.toolbarDropDown, GUILayout.Width(width)))
             {
                 GenericMenu menu = new GenericMenu();
-                if (BehaviorEditor.active != null)
-                    SelectBehaviorBrainMenu(BehaviorEditor.active, ref menu);
+                if (BehaviorTreesEditor.active != null)
+                    SelectBehaviorBrainMenu(BehaviorTreesEditor.active, ref menu);
 
                 menu.AddItem(new GUIContent("[Craete New]"), false, delegate ()
                 {
@@ -55,12 +54,12 @@ namespace UniBt.Editor
                     {
                         bt.Name = bt.name;
 
-                        Root root = BehaviorEditorUtility.AddNode<Root>(BehaviorEditor.center, bt);
+                        Root root = BehaviorTreesEditorUtility.AddNode<Root>(BehaviorTreesEditor.center, bt);
                         bt.rootNode = root;
                         root.Name = "Root";
 
                         AssetDatabase.SaveAssets();
-                        BehaviorEditor.SelectBehaviorTrees(bt);
+                        BehaviorTreesEditor.SelectBehaviorTrees(bt);
                     }
                 });
                 menu.ShowAsContext();
@@ -74,7 +73,7 @@ namespace UniBt.Editor
                 GUIContent content = new GUIContent(bt.name);
                 menu.AddItem(content, false, delegate ()
                 {
-                    BehaviorEditor.SelectBehaviorTrees(bt);
+                    BehaviorTreesEditor.SelectBehaviorTrees(bt);
                 });
             }
         }

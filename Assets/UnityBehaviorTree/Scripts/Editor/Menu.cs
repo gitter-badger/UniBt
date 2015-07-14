@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-using UnityEditor;
-using System.Collections;
+﻿using UnityEditor;
 
 namespace UniBt.Editor
 {
@@ -10,7 +8,7 @@ namespace UniBt.Editor
         [MenuItem("Assets/Unity Behavior Tree/Open Behavior Tree Editor", false, 0)]
         public static void OpenEditorWindow()
         {
-            BehaviorEditor.ShowEditorWindow();
+            BehaviorTreesEditor.ShowEditorWindow();
         }
 
         [MenuItem("Unity Behavior Tree/Open/Code Pack Wizard", false, 9)]

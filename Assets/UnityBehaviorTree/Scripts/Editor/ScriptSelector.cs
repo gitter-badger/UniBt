@@ -17,6 +17,7 @@ namespace UniBt.Editor
 
         public static SerializedProperty DrawProperty(string label, SerializedObject serializedObject, string property, bool padding, params GUILayoutOption[] options)
         {
+            // This code is borrowed from NGUI(https://www.assetstore.unity3d.com/en/#!/content/2413)
             SerializedProperty sp = serializedObject.FindProperty(property);
             if (sp != null)
             {
@@ -64,6 +65,7 @@ namespace UniBt.Editor
 
         private void Search()
         {
+            // This code is borrowed from NGUI(https://www.assetstore.unity3d.com/en/#!/content/2413)
             _isSearched = true;
             string[] paths = AssetDatabase.GetAllAssetPaths();
             List<Object> list = new List<Object>();
@@ -138,7 +140,7 @@ namespace UniBt.Editor
                     Close();
                 }
             }
-            
+
             if (!_isSearched)
             {
                 GUILayout.Space(6f);
@@ -153,6 +155,7 @@ namespace UniBt.Editor
 
         private bool DrawObject(Object obj)
         {
+            // This code is borrowed from NGUI(https://www.assetstore.unity3d.com/en/#!/content/2413)
             if (obj == null)
                 return false;
 

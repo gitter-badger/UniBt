@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using UnityEditor;
-using System.Collections;
 
 namespace UniBt.Editor
 {
     [CustomEditor(typeof(Task))]
-    public class TaskInspector : NodeInspector
+    public class TaskInspectorDrawer : NodeInspectorDrawer
     {
         private Task task;
 
@@ -18,25 +17,25 @@ namespace UniBt.Editor
         public override void OnInspectorGUI()
         {
             string name = task.Name;
-			BehaviorEditorUtility.BeginInspectorGUI(ref name);
+            BehaviorTreesEditorUtility.BeginInspectorGUI(ref name);
             if (name != task.Name)
             {
                 task.Name = name;
                 AssetDatabase.SaveAssets();
             }
             GUILayout.Space(7f);
-            if (BehaviorEditorUtility.DrawHeader("Target Code", false))
+            if (BehaviorTreesEditorUtility.DrawHeader("Target Code", false))
             {
-                BehaviorEditorUtility.DrawTargetScript(OnSelected, serializedObject);
-                if (task.targetScript != null && BehaviorEditorUtility.DrawTargetMethod(task.targetScript.GetType(), typeof(System.IDisposable), ref task.targetMethod))
+                BehaviorTreesEditorUtility.DrawTargetScript(OnSelected, serializedObject);
+                if (task.targetScript != null && BehaviorTreesEditorUtility.DrawTargetMethod(task.targetScript.GetType(), typeof(System.IDisposable), ref task.targetMethod))
                 {
                     UpdateName();
                     UpdateComment();
-                    BehaviorEditor.RepaintAll();
+                    BehaviorTreesEditor.RepaintAll();
                     AssetDatabase.SaveAssets();
                 }
             }
-			BehaviorEditorUtility.EndInspectorGUI(node);
+            BehaviorTreesEditorUtility.EndInspectorGUI(node);
         }
 
         private void OnSelected(Object obj)
@@ -47,7 +46,7 @@ namespace UniBt.Editor
             serializedObject.ApplyModifiedProperties();
             task.targetScript = obj as MonoBehaviour;
         }
-        
+
         private void UpdateName()
         {
             string name = "Task";
@@ -55,7 +54,7 @@ namespace UniBt.Editor
                 name = string.IsNullOrEmpty(task.targetMethod) ? task.targetScript.name : task.targetMethod;
             task.Name = name;
         }
-        
+
         private void UpdateComment()
         {
             string comment = "Empty Task";

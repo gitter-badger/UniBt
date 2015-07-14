@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using UnityEditor;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace UniBt.Editor
 {
-    public class BehaviorEditor : BaseEditor
+    public class BehaviorTreesEditor : BaseEditor
     {
         public enum SelectionMode
         {
@@ -14,16 +13,16 @@ namespace UniBt.Editor
             Rect,
         }
 
-        public static BehaviorEditor instance;
+        public static BehaviorTreesEditor instance;
 
         public static BehaviorTrees active
         {
             // This code is borrowed from ICode(https://www.assetstore.unity3d.com/en/#!/content/13761)
             get
             {
-                if (BehaviorEditor.instance == null)
+                if (BehaviorTreesEditor.instance == null)
                     return null;
-                return BehaviorEditor.instance._active;
+                return BehaviorTreesEditor.instance._active;
             }
         }
 
@@ -32,9 +31,9 @@ namespace UniBt.Editor
             // This code is borrowed from ICode(https://www.assetstore.unity3d.com/en/#!/content/13761)
             get
             {
-                if (BehaviorEditor.instance == null)
+                if (BehaviorTreesEditor.instance == null)
                     return null;
-                return BehaviorEditor.instance._activeGameObject;
+                return BehaviorTreesEditor.instance._activeGameObject;
             }
         }
 
@@ -43,9 +42,9 @@ namespace UniBt.Editor
             // This code is borrowed from ICode(https://www.assetstore.unity3d.com/en/#!/content/13761)
             get
             {
-                if (BehaviorEditor.active == null)
+                if (BehaviorTreesEditor.active == null)
                     return null;
-                return BehaviorEditor.active.root;
+                return BehaviorTreesEditor.active.root;
             }
         }
 
@@ -53,9 +52,9 @@ namespace UniBt.Editor
         {
             get
             {
-                if (BehaviorEditor.instance != null)
+                if (BehaviorTreesEditor.instance != null)
                 {
-                    return BehaviorEditor.instance._selection.Count;
+                    return BehaviorTreesEditor.instance._selection.Count;
                 }
                 return 0;
             }
@@ -79,22 +78,22 @@ namespace UniBt.Editor
         {
             get
             {
-                if (BehaviorEditor.active == null)
+                if (BehaviorTreesEditor.active == null)
                     return new Node[0];
-                return BehaviorEditor.active.nodes;
+                return BehaviorTreesEditor.active.nodes;
             }
         }
 
-        public static BehaviorEditor ShowEditorWindow()
+        public static BehaviorTreesEditor ShowEditorWindow()
         {
-            BehaviorEditor window = EditorWindow.GetWindow<BehaviorEditor>("BT Editor");
+            BehaviorTreesEditor window = EditorWindow.GetWindow<BehaviorTreesEditor>("BT Editor");
             return window;
         }
 
         protected override void OnEnable()
         {
             base.OnEnable();
-            BehaviorEditor.instance = this;
+            BehaviorTreesEditor.instance = this;
             if (_mainToolBar == null)
                 _mainToolBar = new MainToolBar();
 
@@ -117,19 +116,19 @@ namespace UniBt.Editor
                 _serviceSelection.Clear();
                 UpdateUnitySelection();
             }
-            BehaviorEditor.RepaintAll();
+            BehaviorTreesEditor.RepaintAll();
         }
 
         private void Update()
         {
-            if (BehaviorEditor.active != null && BehaviorEditor.activeGameObject != null)
+            if (BehaviorTreesEditor.active != null && BehaviorTreesEditor.activeGameObject != null)
             {
                 if (EditorApplication.isPlaying)
                 {
                     _debugProgress += Time.unscaledDeltaTime * 2.5f;
                     if (_debugProgress >= 1)
                         _debugProgress = 0;
-                    BehaviorEditor.RepaintAll();
+                    BehaviorTreesEditor.RepaintAll();
                 }
             }
         }
@@ -185,14 +184,14 @@ namespace UniBt.Editor
             {
                 nodeMenu.AddItem(new GUIContent("Add Decorator"), false, delegate ()
                 {
-                    BehaviorEditorUtility.AddDecorator<Decorator>(node, BehaviorEditor.active);
+                    BehaviorTreesEditorUtility.AddDecorator<Decorator>(node, BehaviorTreesEditor.active);
                 });
 
                 if (node is Composite)
                 {
                     nodeMenu.AddItem(new GUIContent("Add Service"), false, delegate ()
                     {
-                        BehaviorEditorUtility.AddService<Service>((Composite)node, BehaviorEditor.active);
+                        BehaviorTreesEditorUtility.AddService<Service>((Composite)node, BehaviorTreesEditor.active);
                     });
                 }
                 else
@@ -207,16 +206,16 @@ namespace UniBt.Editor
                         foreach (Node mNode in _selection)
                         {
                             if (!(mNode is Root))
-                                BehaviorEditorUtility.DeleteNode(mNode, BehaviorEditor.active);
+                                BehaviorTreesEditorUtility.DeleteNode(mNode, BehaviorTreesEditor.active);
                         }
                         _selection.Clear();
                     }
                     else
                     {
-                        BehaviorEditorUtility.DeleteNode(node, BehaviorEditor.active);
+                        BehaviorTreesEditorUtility.DeleteNode(node, BehaviorTreesEditor.active);
                     }
                     UpdateUnitySelection();
-                    EditorUtility.SetDirty(BehaviorEditor.active);
+                    EditorUtility.SetDirty(BehaviorTreesEditor.active);
                 });
             }
             else
@@ -274,9 +273,9 @@ namespace UniBt.Editor
             {
                 if (_decoratorSelection.Contains(decorator))
                     _decoratorSelection.Clear();
-                BehaviorEditorUtility.DeleteDecorator(decorator);
+                BehaviorTreesEditorUtility.DeleteDecorator(decorator);
                 UpdateUnitySelection();
-                EditorUtility.SetDirty(BehaviorEditor.active);
+                EditorUtility.SetDirty(BehaviorTreesEditor.active);
             });
             menu.ShowAsContext();
             Event.current.Use();
@@ -327,9 +326,9 @@ namespace UniBt.Editor
             {
                 if (_serviceSelection.Contains(service))
                     _serviceSelection.Clear();
-                BehaviorEditorUtility.DeleteService(service);
+                BehaviorTreesEditorUtility.DeleteService(service);
                 UpdateUnitySelection();
-                EditorUtility.SetDirty(BehaviorEditor.active);
+                EditorUtility.SetDirty(BehaviorTreesEditor.active);
             });
             menu.ShowAsContext();
             Event.current.Use();
@@ -337,17 +336,17 @@ namespace UniBt.Editor
 
         private void DoNode(Node node)
         {
-            GUIStyle style = BehaviorEditorStyles.GetNodeStyle((int)NodeColor.Grey, _selection.Contains(node));
+            GUIStyle style = BehaviorTreesEditorStyles.GetNodeStyle((int)NodeColor.Grey, _selection.Contains(node));
             if (EditorApplication.isPlaying && CompareLockedNodes(node))
             {
-                style = BehaviorEditorStyles.GetNodeStyle((int)NodeColor.Yellow, _selection.Contains(node));
+                style = BehaviorTreesEditorStyles.GetNodeStyle((int)NodeColor.Yellow, _selection.Contains(node));
             }
 
             node.position.width = NodeDrawer.GetMaxWidthContents(node);
             node.position.height = NodeDrawer.GetMaxHeightContents(node);
 
             GUI.Box(node.position, "", style);
-            
+
             NodeDrawer.DrawNode(node, _selection.Contains(node));
 
             if (node.hasTopSelector)
@@ -357,7 +356,7 @@ namespace UniBt.Editor
                 rect.width = rect.width - 40;
                 rect.height = 10;
 
-                GUIStyle topSelectorStyle = BehaviorEditorStyles.GetSelectorStyle(false);
+                GUIStyle topSelectorStyle = BehaviorTreesEditorStyles.GetSelectorStyle(false);
 
                 if (GUI.Button(rect, "", topSelectorStyle) && !EditorApplication.isPlayingOrWillChangePlaymode)
                 {
@@ -396,7 +395,7 @@ namespace UniBt.Editor
                 rect.width = rect.width - 40;
                 rect.height = 10;
 
-                GUIStyle botSelectorStyle = BehaviorEditorStyles.GetSelectorStyle(false);
+                GUIStyle botSelectorStyle = BehaviorTreesEditorStyles.GetSelectorStyle(false);
 
                 if (GUI.Button(rect, "", botSelectorStyle) && !EditorApplication.isPlayingOrWillChangePlaymode)
                 {
@@ -486,7 +485,8 @@ namespace UniBt.Editor
 
         private void OnSelectionChange()
         {
-            BehaviorEditor.SelectGameObject(Selection.activeGameObject);
+            // This code is borrowed from ICode(https://www.assetstore.unity3d.com/en/#!/content/13761)
+            BehaviorTreesEditor.SelectGameObject(Selection.activeGameObject);
         }
 
         private void DoNodeEvents()
@@ -839,21 +839,21 @@ namespace UniBt.Editor
 
         protected override void CanvasContextMenu()
         {
-            if (_currentEvent.type != EventType.MouseDown || _currentEvent.button != 1 || _currentEvent.clickCount != 1 || BehaviorEditor.active == null)
+            if (_currentEvent.type != EventType.MouseDown || _currentEvent.button != 1 || _currentEvent.clickCount != 1 || BehaviorTreesEditor.active == null)
                 return;
 
             GenericMenu canvasMenu = new GenericMenu();
             canvasMenu.AddItem(new GUIContent("Create Composite/Selector"), false, delegate ()
             {
-                BehaviorEditorUtility.AddNode<Selector>(_mousePosition, BehaviorEditor.active);
+                BehaviorTreesEditorUtility.AddNode<Selector>(_mousePosition, BehaviorTreesEditor.active);
             });
             canvasMenu.AddItem(new GUIContent("Create Composite/Sequence"), false, delegate ()
             {
-                BehaviorEditorUtility.AddNode<Sequence>(_mousePosition, BehaviorEditor.active);
+                BehaviorTreesEditorUtility.AddNode<Sequence>(_mousePosition, BehaviorTreesEditor.active);
             });
             canvasMenu.AddItem(new GUIContent("Create Task"), false, delegate ()
             {
-                BehaviorEditorUtility.AddNode<Task>(_mousePosition, BehaviorEditor.active);
+                BehaviorTreesEditorUtility.AddNode<Task>(_mousePosition, BehaviorTreesEditor.active);
             });
 
             canvasMenu.ShowAsContext();
@@ -876,28 +876,28 @@ namespace UniBt.Editor
 
         public static void SelectBehaviorTrees(BehaviorTrees bt)
         {
-            if (BehaviorEditor.instance == null || BehaviorEditor.active == bt)
+            if (BehaviorTreesEditor.instance == null || BehaviorTreesEditor.active == bt)
             {
-                BehaviorEditor.instance.CenterView();
+                BehaviorTreesEditor.instance.CenterView();
                 return;
             }
-            BehaviorEditor.instance._active = bt;
-            BehaviorEditor.instance._selection.Clear();
-            BehaviorEditor.instance.UpdateUnitySelection();
-            BehaviorEditor.instance.CenterView();
+            BehaviorTreesEditor.instance._active = bt;
+            BehaviorTreesEditor.instance._selection.Clear();
+            BehaviorTreesEditor.instance.UpdateUnitySelection();
+            BehaviorTreesEditor.instance.CenterView();
         }
 
         public static void RepaintAll()
         {
-            if (BehaviorEditor.instance != null)
-                BehaviorEditor.instance.Repaint();
+            if (BehaviorTreesEditor.instance != null)
+                BehaviorTreesEditor.instance.Repaint();
         }
 
         public static bool CompareSelectedDecorators(Decorator decorator)
         {
-            for (int i = 0; i < BehaviorEditor.instance._decoratorSelection.Count; i++)
+            for (int i = 0; i < BehaviorTreesEditor.instance._decoratorSelection.Count; i++)
             {
-                if (BehaviorEditor.instance._decoratorSelection[i] == decorator)
+                if (BehaviorTreesEditor.instance._decoratorSelection[i] == decorator)
                     return true;
             }
             return false;
@@ -905,9 +905,9 @@ namespace UniBt.Editor
 
         public static bool CompareSelectedServices(Service service)
         {
-            for (int i = 0; i < BehaviorEditor.instance._serviceSelection.Count; i++)
+            for (int i = 0; i < BehaviorTreesEditor.instance._serviceSelection.Count; i++)
             {
-                if (BehaviorEditor.instance._serviceSelection[i] == service)
+                if (BehaviorTreesEditor.instance._serviceSelection[i] == service)
                     return true;
             }
             return false;
@@ -915,29 +915,29 @@ namespace UniBt.Editor
 
         public static void SelectGameObject(GameObject gameObject)
         {
-            if (BehaviorEditor.instance == null)
+            if (BehaviorTreesEditor.instance == null)
                 return;
 
             if (gameObject != null)
             {
                 Brain brain = gameObject.GetComponent<Brain>();
-                BehaviorEditor.instance._brain = brain;
+                BehaviorTreesEditor.instance._brain = brain;
                 if (brain != null && brain.behaviorTrees != null)
                 {
-                    BehaviorEditor.instance._activeGameObject = gameObject;
-                    BehaviorEditor.SelectBehaviorTrees(brain.behaviorTrees);
+                    BehaviorTreesEditor.instance._activeGameObject = gameObject;
+                    BehaviorTreesEditor.SelectBehaviorTrees(brain.behaviorTrees);
                 }
             }
         }
 
         public static bool CheckThisDecoratorClosed(Decorator decorator)
         {
-            if (BehaviorEditor.instance == null)
+            if (BehaviorTreesEditor.instance == null)
                 return false;
 
-            if (BehaviorEditor.instance._brain != null)
+            if (BehaviorTreesEditor.instance._brain != null)
             {
-                Brain brain = BehaviorEditor.instance._brain;
+                Brain brain = BehaviorTreesEditor.instance._brain;
                 for (int i = 0; i < brain.runtimeDecorators.Count; i++)
                 {
                     if (brain.runtimeDecorators[i].decorator == decorator)

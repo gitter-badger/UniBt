@@ -1,12 +1,10 @@
 ﻿using UnityEngine;
 using UnityEditor;
-using System.Reflection;
-using System.Collections.Generic;
 
 namespace UniBt.Editor
 {
     [CustomEditor(typeof(Decorator), true)]
-    public class DecoratorInspector : UnityEditor.Editor
+    public class DecoratorInspectorDrawer : UnityEditor.Editor
     {
         protected Decorator decorator;
 
@@ -18,17 +16,17 @@ namespace UniBt.Editor
         public override void OnInspectorGUI()
         {
             string name = decorator.Name;
-            BehaviorEditorUtility.BeginInspectorGUI(ref name);
+            BehaviorTreesEditorUtility.BeginInspectorGUI(ref name);
             if (name != decorator.Name)
             {
                 decorator.Name = name;
                 AssetDatabase.SaveAssets();
             }
             GUILayout.Space(7f);
-            if (BehaviorEditorUtility.DrawHeader("Target Code", false))
+            if (BehaviorTreesEditorUtility.DrawHeader("Target Code", false))
             {
-                BehaviorEditorUtility.DrawTargetScript(OnSelected, serializedObject);
-                if (decorator.targetScript != null && BehaviorEditorUtility.DrawTargetMethod(decorator.targetScript.GetType(), typeof(bool), ref decorator.targetMethod))
+                BehaviorTreesEditorUtility.DrawTargetScript(OnSelected, serializedObject);
+                if (decorator.targetScript != null && BehaviorTreesEditorUtility.DrawTargetMethod(decorator.targetScript.GetType(), typeof(bool), ref decorator.targetMethod))
                 {
                     UpdateName();
                     UpdateComment();
@@ -37,16 +35,16 @@ namespace UniBt.Editor
                 }
             }
             GUILayout.Space(7f);
-            if (BehaviorEditorUtility.DrawHeader("Key Query", false))
+            if (BehaviorTreesEditorUtility.DrawHeader("Key Query", false))
             {
                 DrawInverseCondition();
             }
             GUILayout.Space(7f);
-            if (BehaviorEditorUtility.DrawHeader("Decorator", false))
+            if (BehaviorTreesEditorUtility.DrawHeader("Decorator", false))
             {
                 DrawTick();
             }
-            BehaviorEditorUtility.EndInspectorGUI(decorator);
+            BehaviorTreesEditorUtility.EndInspectorGUI(decorator);
         }
 
         private void OnSelected(Object obj)
@@ -122,7 +120,7 @@ namespace UniBt.Editor
                 comment += ": tick every " + decorator.tick + "s";
             }
             decorator.comment = comment;
-            BehaviorEditor.RepaintAll();
+            BehaviorTreesEditor.RepaintAll();
         }
     }
 }

@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-namespace UniBt
+﻿namespace UniBt
 {
     public class RuntimeDecorator
     {
