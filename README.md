@@ -6,7 +6,7 @@ So during the development period, it will **NEVER RECOMMEND** that you apply the
 If the formal version(or development has been a lot of versions) is released, this repository is moving to **GitHub**.
 
 
-UniBt - Behavior Trees of UE4 style for Unity
+UniBt - UE4 style Behavior Trees for Unity
 =========================================================
 **Welcome to the UniBt source code!**
 
