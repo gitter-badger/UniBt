@@ -260,24 +260,34 @@ namespace UniBt.Editor
 
         public static bool DrawTargetMethod(System.Type scriptType, System.Type returnType, ref string currentMethod)
         {
+            return DrawTargetMethod(scriptType, returnType, null, ref currentMethod);
+        }
+
+        public static bool DrawTargetMethod(System.Type scriptType, System.Type returnTypeA, System.Type returnTypeB, ref string currentMethod)
+        {
             GUILayout.BeginHorizontal();
             GUILayout.Space(7f);
             GUILayout.Label("Target Method:");
 
             List<string> methodList = new List<string>();
+
             MethodInfo[] methods = scriptType.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly);
             int oldMethodIndex = 0;
             for (int i = 0; i < methods.Length; i++)
             {
                 MethodInfo method = methods[i];
-                if (method.ReturnType != returnType)
+
+                if (method.Name == "Initialize")
                     continue;
+
+                if ((returnTypeA == null) ? true : method.ReturnType != returnTypeA)
+                {
+                    if ((returnTypeB == null) ? true : method.ReturnType != returnTypeB)
+                        continue;
+                }
 
                 ParameterInfo[] parameters = method.GetParameters();
                 if (parameters.Length > 0)
-                    continue;
-
-                if (method.Name == "Initialize")
                     continue;
 
                 methodList.Add(method.Name);

@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using System.Collections;
+using System.Reflection;
 
 namespace UniBt.Editor
 {
@@ -27,8 +29,9 @@ namespace UniBt.Editor
             if (BehaviorTreesEditorUtility.DrawHeader("Target Code", false))
             {
                 BehaviorTreesEditorUtility.DrawTargetScript(OnSelected, serializedObject);
-                if (task.targetScript != null && BehaviorTreesEditorUtility.DrawTargetMethod(task.targetScript.GetType(), typeof(System.IDisposable), ref task.targetMethod))
+                if (task.targetScript != null && BehaviorTreesEditorUtility.DrawTargetMethod(task.targetScript.GetType(), typeof(System.IDisposable), typeof(IEnumerator), ref task.targetMethod))
                 {
+                    CheckMethod();
                     UpdateName();
                     UpdateComment();
                     BehaviorTreesEditor.RepaintAll();
@@ -45,6 +48,16 @@ namespace UniBt.Editor
             sp.objectReferenceValue = obj;
             serializedObject.ApplyModifiedProperties();
             task.targetScript = obj as MonoBehaviour;
+        }
+        
+        private void CheckMethod()
+        {
+            MethodInfo mi = task.targetScript.GetType().GetMethod(task.targetMethod, BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly);
+
+            if (mi.ReturnType == typeof(IEnumerator))
+                task.isCoroutine = true;
+            else
+                task.isCoroutine = false;
         }
 
         private void UpdateName()

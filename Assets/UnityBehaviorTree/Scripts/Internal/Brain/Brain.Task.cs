@@ -18,7 +18,18 @@ namespace UniBt
                 IInitializable initializable = comp as IInitializable;
                 initializable.Initialize();
             }
-            rt.taskFunc = Delegate.CreateDelegate(typeof(Func<IDisposable>), comp, task.targetMethod) as Func<IDisposable>;
+            if (task.isCoroutine)
+            {
+                rt.isCoroutine = true;
+                rt.comp = comp;
+            }
+            else
+            {
+                rt.isCoroutine = false;
+                Func<IDisposable> tempFunc = Delegate.CreateDelegate(typeof(Func<IDisposable>), comp, task.targetMethod) as Func<IDisposable>;
+                rt.taskFunc = tempFunc;
+            }
+
             _runtimeTasks.Add(task, rt);
         }
 

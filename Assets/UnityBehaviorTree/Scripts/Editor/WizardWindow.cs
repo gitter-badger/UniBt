@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Reflection;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace UniBt.Editor
@@ -59,6 +60,7 @@ namespace UniBt.Editor
             List<MethodInfo> decos = GetMethodInfos(type, typeof(bool));
             List<MethodInfo> servs = GetMethodInfos(type, typeof(void));
             List<MethodInfo> tasks = GetMethodInfos(type, typeof(System.IDisposable));
+            tasks.AddRange(GetMethodInfos(type, typeof(IEnumerator)));
             bool created = DrawCreateButton(!(decos.Count > 0) && !(decos.Count > 0) && !(tasks.Count > 0));
             if (decos.Count > 0)
             {

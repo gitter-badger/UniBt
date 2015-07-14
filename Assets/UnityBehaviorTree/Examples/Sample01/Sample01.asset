@@ -77,6 +77,7 @@ MonoBehaviour:
   _decorators: []
   targetScript: {fileID: 11483950, guid: d1ab6661e0b36cc45a3835cdd7e6d50b, type: 2}
   targetMethod: DebugMessage
+  isCoroutine: 1
 --- !u!114 &11440048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,6 +129,7 @@ MonoBehaviour:
   _decorators: []
   targetScript: {fileID: 11483950, guid: d1ab6661e0b36cc45a3835cdd7e6d50b, type: 2}
   targetMethod: Wait
+  isCoroutine: 0
 --- !u!114 &11469368
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -183,3 +185,4 @@ MonoBehaviour:
   _decorators: []
   targetScript: {fileID: 11483950, guid: d1ab6661e0b36cc45a3835cdd7e6d50b, type: 2}
   targetMethod: Wait
+  isCoroutine: 0

@@ -44,11 +44,11 @@ namespace UniBt.Example
             return subscription;
         }
 
-        public IDisposable DebugMessage()
+        public IEnumerator DebugMessage()
         {
             Debug.Log("[Task] Debug Message");
             this.FinishExecute(true);
-            return null;
+            yield break;
         }
         #endregion Tasks
     }

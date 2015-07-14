@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 namespace UniBt
 {
@@ -7,6 +6,7 @@ namespace UniBt
     {
 		public MonoBehaviour targetScript;
 		public string targetMethod;
+        public bool isCoroutine;
         
         public Task()
         {
