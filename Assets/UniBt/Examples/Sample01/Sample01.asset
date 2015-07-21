@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a90fb62161ef0846b05ac226d178cf9, type: 3}
+  m_Name: Sample01
+  m_EditorClassIdentifier: 
+  position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  comment: 
+  _parent: {fileID: 0}
+  _parentNode: {fileID: 0}
+  _name: Sample01
+  _bt: {fileID: 0}
+  _childNodes: []
+  _decorators: []
+  _nodes:
+  - {fileID: 11418430}
+  _rootNode: {fileID: 11418430}
+--- !u!114 &11418430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b6ff5f10c5a7a49a84eb4d23dfd72a, type: 3}
+  m_Name: Root
+  m_EditorClassIdentifier: 
+  position:
+    serializedVersion: 2
+    x: 25000
+    y: 25000
+    width: 150
+    height: 70
+  comment: Root
+  _parent: {fileID: 0}
+  _parentNode: {fileID: 0}
+  _name: Root
+  _bt: {fileID: 11400000}
+  _childNodes: []
+  _decorators: []

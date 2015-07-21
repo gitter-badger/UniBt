@@ -31,6 +31,7 @@ Table of Contents
 - [Reference](#reference)
 - [Developer Info](#developer-info)
 - [License](#license)
+- [Donate](#donate)
 
 
 What is UniBt?
@@ -77,11 +78,17 @@ Developer Info
 Lee Jong-Hyuck(a.k.a. EjongHyuck or Makart) is Unity developer(Beginner) in South Korea.
 
 Blog : http://blog.ejonghyuck.net/ (Korean)  
-Twitter : https://twitter.com/HansMakart (Korean)  
+Twitter : https://twitter.com/HansMakart (Korean)
 
 
 License
 -------
 This library is under the [MIT License](https://en.wikipedia.org/wiki/MIT_License).
 
-Some code is borrowed [ICode](https://www.assetstore.unity3d.com/kr/#!/content/13761) and [UniRx](https://github.com/neuecc/UniRx)
+Some code has been borrowed [ICode](https://www.assetstore.unity3d.com/kr/#!/content/13761) and [UniRx](https://github.com/neuecc/UniRx).
+
+
+Donate
+------
+Did you liked this asset?
+If so, please [donate via paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ejonghyuck%40live%2eco%2ekr&lc=AL&item_name=ejonghyuck&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted) to me for a better development environment!
