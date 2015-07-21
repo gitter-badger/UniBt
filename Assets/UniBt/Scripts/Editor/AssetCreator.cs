@@ -5,7 +5,7 @@ namespace UniBt.Editor
 {
     public static class AssetCreator
     {
-        [MenuItem("Assets/Create/UnityBehaviorTree/Behavior Trees")]
+        [MenuItem("Assets/Create/UniBt/Behavior Trees")]
         public static void CreateBehaviorTrees()
         {
             // This code is borrowed from ICode(https://www.assetstore.unity3d.com/en/#!/content/13761)

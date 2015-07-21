@@ -2,7 +2,7 @@
 
 namespace UniBt
 {
-    public sealed class RuntimeTask : RuntimeNode
+    public sealed class RuntimeTask
     {
         public Task parent;
         public string methodName;

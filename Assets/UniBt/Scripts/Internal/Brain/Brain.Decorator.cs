@@ -15,7 +15,6 @@ namespace UniBt
 #endif
 
         private List<RuntimeDecorator> _runtimeDecorators = new List<RuntimeDecorator>();
-        private RuntimeDecorator _aliveRD;
 
         private void InitializeDecorator(Node node)
         {
@@ -24,18 +23,15 @@ namespace UniBt
                 for (int i = 0; i < node.decorators.Length; i++)
                 {
                     Decorator dc = node.decorators[i];
-                    RuntimeDecorator rd;
+                    RuntimeDecorator rd = new RuntimeDecorator(node, dc, dc.tick, dc.inversed);
+                    MonoBehaviour comp = GetEqualTypeComponent(dc.targetScript.GetType()) as MonoBehaviour;
+                    if (comp == null)
                     {
-                        rd = new RuntimeDecorator(node, dc, dc.tick, dc.inversed);
-                        MonoBehaviour comp = GetEqualTypeComponent(dc.targetScript.GetType()) as MonoBehaviour;
-                        if (comp == null)
-                        {
-                            comp = gameObject.AddComponent(dc.targetScript.GetType()) as MonoBehaviour;
-                            IInitializable initializable = comp as IInitializable;
-                            initializable.Initialize();
-                        }
-                        rd.decoratorFunc = Delegate.CreateDelegate(typeof(Func<bool>), comp, dc.targetMethod) as Func<bool>;
+                        comp = gameObject.AddComponent(dc.targetScript.GetType()) as MonoBehaviour;
+                        IInitializable initializable = comp as IInitializable;
+                        initializable.Initialize();
                     }
+                    rd.decoratorFunc = Delegate.CreateDelegate(typeof(Func<bool>), comp, dc.targetMethod) as Func<bool>;
                     _runtimeDecorators.Add(rd);
                 }
             }
@@ -43,9 +39,7 @@ namespace UniBt
 
         private bool StartDecorator(RuntimeDecorator runtimeDecorator)
         {
-            _aliveRD = runtimeDecorator;
             bool value = runtimeDecorator.inversed ? runtimeDecorator.decoratorFunc() : !runtimeDecorator.decoratorFunc();
-            _aliveRD = null;
 
             if (value)
             {
@@ -70,11 +64,7 @@ namespace UniBt
                     {
                         if (!runtimeDecorator.activeSelf)
                             return;
-
-                        _aliveRD = runtimeDecorator;
                         bool _value = runtimeDecorator.inversed ? runtimeDecorator.decoratorFunc() : !runtimeDecorator.decoratorFunc();
-                        _aliveRD = null;
-
                         if (_value)
                         {
 #if UNITY_EDITOR

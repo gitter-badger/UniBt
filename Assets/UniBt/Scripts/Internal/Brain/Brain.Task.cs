@@ -7,7 +7,6 @@ namespace UniBt
     public partial class Brain : MonoBehaviour
     {
         private Dictionary<Task, RuntimeTask> _runtimeTasks = new Dictionary<Task, RuntimeTask>();
-        private RuntimeTask _aliveRT;
 
         private void InitializeTask(Task task)
         {
@@ -43,7 +42,6 @@ namespace UniBt
             if (node is Task)
             {
                 RuntimeTask rt = GetRuntimeTask(_aliveBehavior as Task);
-                _aliveRT = rt;
                 rt.Start();
             }
         }
@@ -54,8 +52,6 @@ namespace UniBt
             {
                 RuntimeTask rt = GetRuntimeTask(_aliveBehavior as Task);
                 rt.Finish();
-                if (_aliveRT == rt)
-                    _aliveRT = null;
             }
         }
 

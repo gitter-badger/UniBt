@@ -1,6 +1,6 @@
 ﻿namespace UniBt
 {
-    public sealed class RuntimeService : RuntimeNode
+    public sealed class RuntimeService
     {
         public Composite parent;
         public System.Action serviceAction;

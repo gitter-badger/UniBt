@@ -182,7 +182,7 @@ namespace UniBt.Editor
             GenericMenu nodeMenu = new GenericMenu();
             if (!(node is Root))
             {
-                nodeMenu.AddItem(new GUIContent("Add Decorator/Empty Decorator"), false, delegate ()
+                nodeMenu.AddItem(new GUIContent("Add Decorator/Decorator"), false, delegate ()
                 {
                     BehaviorTreesEditorUtility.AddDecorator<Decorator>(node, BehaviorTreesEditor.active);
                 });
@@ -843,6 +843,7 @@ namespace UniBt.Editor
                 return;
 
             GenericMenu canvasMenu = new GenericMenu();
+            // Composite
             canvasMenu.AddItem(new GUIContent("Create Composite/Selector"), false, delegate ()
             {
                 BehaviorTreesEditorUtility.AddNode<Selector>(_mousePosition, BehaviorTreesEditor.active);
@@ -851,12 +852,13 @@ namespace UniBt.Editor
             {
                 BehaviorTreesEditorUtility.AddNode<Sequence>(_mousePosition, BehaviorTreesEditor.active);
             });
+            // Task
             canvasMenu.AddItem(new GUIContent("Create Task/Wait"), false, delegate ()
             {
                 BehaviorTreesEditorUtility.AddNode<Wait>(_mousePosition, BehaviorTreesEditor.active);
             });
             canvasMenu.AddSeparator("Create Task/");
-            canvasMenu.AddItem(new GUIContent("Create Task/Empty Task"), false, delegate ()
+            canvasMenu.AddItem(new GUIContent("Create Task/Task"), false, delegate ()
             {
                 BehaviorTreesEditorUtility.AddNode<Task>(_mousePosition, BehaviorTreesEditor.active);
             });

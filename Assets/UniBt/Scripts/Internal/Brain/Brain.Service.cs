@@ -8,7 +8,6 @@ namespace UniBt
     public partial class Brain : MonoBehaviour
     {
         private List<RuntimeService> _runtimeServices = new List<RuntimeService>();
-        private RuntimeService _aliveRS;
 
         private void InitializeService(Composite composite)
         {
@@ -33,9 +32,7 @@ namespace UniBt
 
         private void StartService(RuntimeService runtimeService)
         {
-            _aliveRS = runtimeService;
             runtimeService.serviceAction();
-            _aliveRS = null;
 
             if (runtimeService.subscription != null)
                 runtimeService.subscription.Dispose();
@@ -43,9 +40,7 @@ namespace UniBt
             runtimeService.subscription = Observable.Interval(TimeSpan.FromSeconds(runtimeService.tick))
                 .Subscribe(_ =>
                 {
-                    _aliveRS = runtimeService;
                     runtimeService.serviceAction();
-                    _aliveRS = null;
                 })
                 .AddTo(this);
         }

@@ -1,6 +1,6 @@
 ﻿namespace UniBt
 {
-    public sealed class RuntimeDecorator : RuntimeNode
+    public sealed class RuntimeDecorator
     {
         public Node parent;
         public Decorator decorator;
