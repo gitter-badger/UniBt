@@ -49,7 +49,7 @@ Supported platforms are PC/WebGL/etc and the library is fully supported on Unity
 
 
 ### Download
-You can download from [here](https://bitbucket.org/ejonghyuck/unibt/src/d1b022f6c99cdeb80599b5cd30ed5803f460f5ec/Packages/UBT.v.0.1.3.unitypackage?at=master).
+You can download from [here](https://github.com/ejonghyuck/UniBt/releases).
 
 
 Reference
