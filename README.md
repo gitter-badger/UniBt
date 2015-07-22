@@ -1,4 +1,4 @@
-!!! This is just an asset that is currently in development!
+!!! This asset is currently under development!
 ===========================================================
 During the development there will be a lot of changes.
 So during the development period, it will **NEVER RECOMMEND** that you apply these assets to your project.
