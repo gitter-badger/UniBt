@@ -10,7 +10,7 @@ namespace UniBt
     [AddComponentMenu("Unity Behavior Tree/Behavior Tree Brain")]
     public partial class Brain : MonoBehaviour
     {
-        public BehaviorTrees behaviorTrees;
+        public BehaviorTree behaviorTree;
 
         public Node aliveBehavior
         {
@@ -29,7 +29,7 @@ namespace UniBt
 
         private void OnEnable()
         {
-            StartNode(behaviorTrees.rootNode);
+            StartNode(behaviorTree.rootNode);
         }
 
         private void OnDisable()
@@ -39,7 +39,7 @@ namespace UniBt
 
         private bool CheckBehaviorBrain()
         {
-            if (behaviorTrees == null)
+            if (behaviorTree == null)
             {
                 Debug.LogError("Can't initialize to BTBehaviour, because the behavior brain is null.");
                 return false;
@@ -49,9 +49,9 @@ namespace UniBt
 
         private void InitializeNodes()
         {
-            for (int i = 0; i < behaviorTrees.nodes.Length; i++)
+            for (int i = 0; i < behaviorTree.nodes.Length; i++)
             {
-                Node node = behaviorTrees.nodes[i] as Node;
+                Node node = behaviorTree.nodes[i] as Node;
                 if (!(node is Task) && !_currentChildNodeIndex.ContainsKey(node))
                     _currentChildNodeIndex.Add(node, 0);
 
@@ -164,7 +164,7 @@ namespace UniBt
                         .TakeUntilDestroy(this)
                         .TakeUntilDestroy(this)
                         .First()
-                        .Subscribe(_ => StartNode(behaviorTrees.rootNode));
+                        .Subscribe(_ => StartNode(behaviorTree.rootNode));
                 }
                 else
                 {

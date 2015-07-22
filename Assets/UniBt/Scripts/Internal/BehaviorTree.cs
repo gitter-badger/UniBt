@@ -5,7 +5,7 @@ using System.Linq;
 namespace UniBt
 {
 	[System.Serializable]
-	public sealed class BehaviorTrees : Node
+	public sealed class BehaviorTree : Node
 	{
 		public Node[] nodes
 		{
@@ -31,7 +31,7 @@ namespace UniBt
 				if (nodes.Length > 0)
 					nodeList.AddRange(nodes);
 				
-				foreach(BehaviorTrees brain in behaviorTrees)
+				foreach(BehaviorTree brain in behaviorTree)
 				{
 					nodeList.AddRange(brain.NodeRecursive);
 				}
@@ -39,12 +39,12 @@ namespace UniBt
 			}
 		}
 		
-		public BehaviorTrees[] behaviorTrees
+		public BehaviorTree[] behaviorTree
 		{
             // This code is borrowed from ICode(https://www.assetstore.unity3d.com/en/#!/content/13761)
 			get
 			{
-				return this._nodes.Where(node => node.GetType() == typeof(BehaviorTrees)).Cast<BehaviorTrees>().ToArray();
+				return this._nodes.Where(node => node.GetType() == typeof(BehaviorTree)).Cast<BehaviorTree>().ToArray();
 			}
 		}
 		

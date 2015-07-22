@@ -49,7 +49,7 @@ namespace UniBt.Editor
 
                 menu.AddItem(new GUIContent("[Craete New]"), false, delegate ()
                 {
-                    BehaviorTrees bt = AssetCreator.CreateAsset<BehaviorTrees>(true);
+                    BehaviorTree bt = AssetCreator.CreateAsset<BehaviorTree>(true);
                     if (bt != null)
                     {
                         bt.Name = bt.name;
@@ -66,7 +66,7 @@ namespace UniBt.Editor
             }
         }
 
-        private void SelectBehaviorBrainMenu(BehaviorTrees bt, ref GenericMenu menu)
+        private void SelectBehaviorBrainMenu(BehaviorTree bt, ref GenericMenu menu)
         {
             if (bt != null)
             {

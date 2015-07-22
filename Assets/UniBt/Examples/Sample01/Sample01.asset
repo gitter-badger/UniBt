@@ -26,9 +26,9 @@ MonoBehaviour:
   _decorators: []
   _nodes:
   - {fileID: 11418430}
-  - {fileID: 11446748}
   - {fileID: 11412418}
   - {fileID: 11416926}
+  - {fileID: 11488168}
   _rootNode: {fileID: 11418430}
 --- !u!114 &11412418
 MonoBehaviour:
@@ -45,11 +45,11 @@ MonoBehaviour:
     serializedVersion: 2
     x: 24849
     y: 25319
-    width: 184
+    width: 188
     height: 78
   comment: Sample01.DebugMessage
   _parent: {fileID: 0}
-  _parentNode: {fileID: 11446748}
+  _parentNode: {fileID: 11488168}
   _name: DebugMessage
   _bt: {fileID: 11400000}
   _childNodes: []
@@ -72,11 +72,11 @@ MonoBehaviour:
     serializedVersion: 2
     x: 25117
     y: 25322
-    width: 90
+    width: 94
     height: 78
   comment: 'Wait: 2s'
   _parent: {fileID: 0}
-  _parentNode: {fileID: 11446748}
+  _parentNode: {fileID: 11488168}
   _name: Wait
   _bt: {fileID: 11400000}
   _childNodes: []
@@ -100,7 +100,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 25000
     y: 25000
-    width: 93
+    width: 95
     height: 78
   comment: Root
   _parent: {fileID: 0}
@@ -108,37 +108,9 @@ MonoBehaviour:
   _name: Root
   _bt: {fileID: 11400000}
   _childNodes:
-  - {fileID: 11446748}
+  - {fileID: 11488168}
   _decorators: []
---- !u!114 &11446748
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c53f0ccccdc9164ca6460d07f34c3af, type: 3}
-  m_Name: Selector
-  m_EditorClassIdentifier: 
-  position:
-    serializedVersion: 2
-    x: 24935
-    y: 25132
-    width: 222
-    height: 131
-  comment: Selector
-  _parent: {fileID: 0}
-  _parentNode: {fileID: 11418430}
-  _name: Selector
-  _bt: {fileID: 11400000}
-  _childNodes:
-  - {fileID: 11412418}
-  - {fileID: 11416926}
-  _decorators:
-  - {fileID: 11485614}
-  _services: []
---- !u!114 &11485614
+--- !u!114 &11474052
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -149,10 +121,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d84a32eafdad07b47be57f329e600902, type: 3}
   m_Name: OptionValue
   m_EditorClassIdentifier: 
-  comment: 'Sample01.OptionValue: tick every 0.2s'
+  comment: 'Sample01.OptionValue: tick every 0.3s'
   targetScript: {fileID: 11483950, guid: d1ab6661e0b36cc45a3835cdd7e6d50b, type: 2}
   targetMethod: OptionValue
-  tick: .200000003
+  tick: .300000012
   inversed: 0
-  _parent: {fileID: 11446748}
+  _parent: {fileID: 11488168}
   _name: OptionValue
+--- !u!114 &11488168
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28fd1e626c8bca94d9ada7a6d04c11c4, type: 3}
+  m_Name: Sequence
+  m_EditorClassIdentifier: 
+  position:
+    serializedVersion: 2
+    x: 24924
+    y: 25134
+    width: 242
+    height: 131
+  comment: Sequence
+  _parent: {fileID: 0}
+  _parentNode: {fileID: 11418430}
+  _name: Sequence
+  _bt: {fileID: 11400000}
+  _childNodes:
+  - {fileID: 11412418}
+  - {fileID: 11416926}
+  _decorators:
+  - {fileID: 11474052}
+  _services: []

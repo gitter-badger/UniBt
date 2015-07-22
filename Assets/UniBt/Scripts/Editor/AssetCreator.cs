@@ -9,7 +9,7 @@ namespace UniBt.Editor
         public static void CreateBehaviorTrees()
         {
             // This code is borrowed from ICode(https://www.assetstore.unity3d.com/en/#!/content/13761)
-            BehaviorTrees bt = AssetCreator.CreateAsset<BehaviorTrees>(false);
+            BehaviorTree bt = AssetCreator.CreateAsset<BehaviorTree>(false);
             if (bt != null)
             {
                 bt.Name = bt.name;

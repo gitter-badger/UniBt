@@ -15,7 +15,7 @@ namespace UniBt.Editor
 
         public static BehaviorTreesEditor instance;
 
-        public static BehaviorTrees active
+        public static BehaviorTree active
         {
             // This code is borrowed from ICode(https://www.assetstore.unity3d.com/en/#!/content/13761)
             get
@@ -37,7 +37,7 @@ namespace UniBt.Editor
             }
         }
 
-        public static BehaviorTrees root
+        public static BehaviorTree root
         {
             // This code is borrowed from ICode(https://www.assetstore.unity3d.com/en/#!/content/13761)
             get
@@ -61,7 +61,7 @@ namespace UniBt.Editor
         }
 
         private bool _isViewCenter;
-        private BehaviorTrees _active;
+        private BehaviorTree _active;
         private GameObject _activeGameObject;
         private Brain _brain;
         private Vector2 _selectionStartPosition;
@@ -108,8 +108,8 @@ namespace UniBt.Editor
                 if (_activeGameObject != null)
                 {
                     _brain = activeGameObject.GetComponent<Brain>();
-                    if (_brain != null && _brain.behaviorTrees != null)
-                        SelectBehaviorTrees(_brain.behaviorTrees);
+                    if (_brain != null && _brain.behaviorTree != null)
+                        SelectBehaviorTrees(_brain.behaviorTree);
                 }
                 _selection.Clear();
                 _decoratorSelection.Clear();
@@ -868,7 +868,7 @@ namespace UniBt.Editor
 
         private bool CompareLockedNodes(Node node)
         {
-            if (_brain != null && _brain.behaviorTrees != null)
+            if (_brain != null && _brain.behaviorTree != null)
             {
                 Node cNode = _brain.aliveBehavior;
                 while (cNode != null)
@@ -881,7 +881,7 @@ namespace UniBt.Editor
             return false;
         }
 
-        public static void SelectBehaviorTrees(BehaviorTrees bt)
+        public static void SelectBehaviorTrees(BehaviorTree bt)
         {
             if (BehaviorTreesEditor.instance == null || BehaviorTreesEditor.active == bt)
             {
@@ -929,10 +929,10 @@ namespace UniBt.Editor
             {
                 Brain brain = gameObject.GetComponent<Brain>();
                 BehaviorTreesEditor.instance._brain = brain;
-                if (brain != null && brain.behaviorTrees != null)
+                if (brain != null && brain.behaviorTree != null)
                 {
                     BehaviorTreesEditor.instance._activeGameObject = gameObject;
-                    BehaviorTreesEditor.SelectBehaviorTrees(brain.behaviorTrees);
+                    BehaviorTreesEditor.SelectBehaviorTrees(brain.behaviorTree);
                 }
             }
         }

@@ -7,7 +7,7 @@ namespace UniBt
         public Rect position;
         public string comment;
 
-        public BehaviorTrees bt
+        public BehaviorTree bt
         {
             get { return this._bt; }
             set { this._bt = value; }
@@ -24,9 +24,9 @@ namespace UniBt
             set { this._parentNode = value; }
         }
 
-        public BehaviorTrees root
+        public BehaviorTree root
         {
-            get { return parent == null && GetType() == typeof(BehaviorTrees) ? this as BehaviorTrees : parent.root; }
+            get { return parent == null && GetType() == typeof(BehaviorTree) ? this as BehaviorTree : parent.root; }
         }
 
         public string Name
@@ -87,7 +87,7 @@ namespace UniBt
         [SerializeField]
         private string _name;
         [SerializeField]
-        private BehaviorTrees _bt;
+        private BehaviorTree _bt;
         [SerializeField]
         private Node[] _childNodes;
         [SerializeField]

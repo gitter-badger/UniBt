@@ -7,12 +7,10 @@ namespace UniBt
 {
     public partial class Brain : MonoBehaviour
     {
-#if UNITY_EDITOR
         public List<RuntimeDecorator> runtimeDecorators
         {
             get { return this._runtimeDecorators; }
         }
-#endif
 
         private List<RuntimeDecorator> _runtimeDecorators = new List<RuntimeDecorator>();
 
