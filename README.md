@@ -2,6 +2,8 @@
 
 !!! This asset is currently under development!
 ===========================================================
+
+[![Join the chat at https://gitter.im/ejonghyuck/UniBt](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ejonghyuck/UniBt?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 During the development there will be a lot of changes.
 So during the development period, it will **NEVER RECOMMEND** that you apply these assets to your project.
 
