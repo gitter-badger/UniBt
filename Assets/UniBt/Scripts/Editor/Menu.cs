@@ -7,7 +7,7 @@ namespace UniBt.Editor
         [MenuItem("UniBt/Open/Behavior Trees Editor", false, 9)]
         public static void OpenEditorWindow()
         {
-            BehaviorTreesEditor.ShowEditorWindow();
+            BehaviorTreeEditor.ShowEditorWindow();
         }
 
         [MenuItem("UniBt/Open/Code Pack Maker", false, 9)]

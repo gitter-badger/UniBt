@@ -33,8 +33,8 @@ namespace UniBt.Editor.Inspector
                 Event.current.clickCount == 2 &&
                 rect.Contains(Event.current.mousePosition))
             {
-                BehaviorTreesEditor.ShowEditorWindow();
-                BehaviorTreesEditor.SelectBehaviorTrees(target as BehaviorTree);
+                BehaviorTreeEditor.ShowEditorWindow();
+                BehaviorTreeEditor.SelectBehaviorTrees(target as BehaviorTree);
             }
         }
     }

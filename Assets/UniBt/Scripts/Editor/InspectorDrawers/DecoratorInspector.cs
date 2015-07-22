@@ -16,35 +16,36 @@ namespace UniBt.Editor.Inspector
         public override void OnInspectorGUI()
         {
             string name = decorator.Name;
-            BehaviorTreesEditorUtility.BeginInspectorGUI(ref name);
+            BehaviorTreeEditorUtility.BeginInspectorGUI(ref name);
             if (name != decorator.Name)
             {
                 decorator.Name = name;
                 AssetDatabase.SaveAssets();
             }
             GUILayout.Space(7f);
-            if (BehaviorTreesEditorUtility.DrawHeader("Target Code", false))
+            if (BehaviorTreeEditorUtility.DrawHeader("Target Code", false))
             {
-                BehaviorTreesEditorUtility.DrawTargetScript(OnSelected, serializedObject);
-                if (decorator.targetScript != null && BehaviorTreesEditorUtility.DrawTargetMethod(decorator.targetScript.GetType(), typeof(bool), ref decorator.targetMethod))
+                BehaviorTreeEditorUtility.DrawTargetScript(OnSelected, serializedObject);
+                if (decorator.targetScript != null && BehaviorTreeEditorUtility.DrawTargetMethod(decorator.targetScript.GetType(), typeof(bool), ref decorator.targetMethod))
                 {
                     UpdateName("Decorator");
                     UpdateComment();
+                    BehaviorTreeEditor.RepaintAll();
                     AssetDatabase.SaveAssets();
                     EditorGUILayout.Space();
                 }
             }
             GUILayout.Space(7f);
-            if (BehaviorTreesEditorUtility.DrawHeader("Key Query", false))
+            if (BehaviorTreeEditorUtility.DrawHeader("Key Query", false))
             {
                 DrawInverseCondition();
             }
             GUILayout.Space(7f);
-            if (BehaviorTreesEditorUtility.DrawHeader("Observer Aborts", false))
+            if (BehaviorTreeEditorUtility.DrawHeader("Observer Aborts", false))
             {
                 DrawTick();
             }
-            BehaviorTreesEditorUtility.EndInspectorGUI(decorator);
+            BehaviorTreeEditorUtility.EndInspectorGUI(decorator);
         }
 
         private void OnSelected(Object obj)
@@ -118,7 +119,6 @@ namespace UniBt.Editor.Inspector
                 comment += ": tick every " + decorator.tick + "s";
             }
             decorator.comment = comment;
-            BehaviorTreesEditor.RepaintAll();
         }
     }
 }

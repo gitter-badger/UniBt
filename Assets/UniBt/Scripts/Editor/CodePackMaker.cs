@@ -64,17 +64,17 @@ namespace UniBt.Editor
             bool created = DrawCreateButton(!(decos.Count > 0) && !(decos.Count > 0) && !(tasks.Count > 0));
             if (decos.Count > 0)
             {
-                if (BehaviorTreesEditorUtility.DrawHeader("Decorators", false))
+                if (BehaviorTreeEditorUtility.DrawHeader("Decorators", false))
                     DrawMethods(decos);
             }
             if (servs.Count > 0)
             {
-                if (BehaviorTreesEditorUtility.DrawHeader("Services", false))
+                if (BehaviorTreeEditorUtility.DrawHeader("Services", false))
                     DrawMethods(servs);
             }
             if (tasks.Count > 0)
             {
-                if (BehaviorTreesEditorUtility.DrawHeader("Tasks", false))
+                if (BehaviorTreeEditorUtility.DrawHeader("Tasks", false))
                     DrawMethods(tasks);
             }
             if (created)

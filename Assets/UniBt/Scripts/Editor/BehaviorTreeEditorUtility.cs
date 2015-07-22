@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace UniBt.Editor
 {
-    public static class BehaviorTreesEditorUtility
+    public static class BehaviorTreeEditorUtility
     {
         public static string GenerateName<T>()
         {
@@ -46,11 +46,11 @@ namespace UniBt.Editor
             Node node = ScriptableObject.CreateInstance(typeof(T)) as Node;
             node.hideFlags = HideFlags.HideInHierarchy;
 
-            node.Name = BehaviorTreesEditorUtility.GenerateName<T>();
+            node.Name = BehaviorTreeEditorUtility.GenerateName<T>();
             node.comment = node.Name;
             node.bt = bt;
             bt.nodes = ArrayUtility.Add<Node>(bt.nodes, node);
-            node.position = new Rect(position.x, position.y, BehaviorTreesEditorStyles.NodeNormalWidth, BehaviorTreesEditorStyles.NodeNormalHeight);
+            node.position = new Rect(position.x, position.y, BehaviorTreeEditorStyles.NodeNormalWidth, BehaviorTreeEditorStyles.NodeNormalHeight);
 
             if (EditorUtility.IsPersistent(bt))
                 AssetDatabase.AddObjectToAsset(node, bt);
@@ -60,7 +60,7 @@ namespace UniBt.Editor
                 node.position.width = 150f;
                 node.position.height = 45f;
 
-                Root root = BehaviorTreesEditorUtility.AddNode<Root>(BehaviorTreesEditor.center, node as BehaviorTree);
+                Root root = BehaviorTreeEditorUtility.AddNode<Root>(BehaviorTreeEditor.center, node as BehaviorTree);
                 root.Name = "Root";
             }
             else if (node is Wait)
@@ -88,18 +88,18 @@ namespace UniBt.Editor
             {
                 foreach (Decorator decorator in node.decorators)
                 {
-                    BehaviorTreesEditorUtility.DeleteDecorator(decorator);
+                    BehaviorTreeEditorUtility.DeleteDecorator(decorator);
                 }
             }
             if (node is Composite && (node as Composite).services.Length > 0)
             {
                 foreach (Service service in (node as Composite).services)
                 {
-                    BehaviorTreesEditorUtility.DeleteService(service);
+                    BehaviorTreeEditorUtility.DeleteService(service);
                 }
             }
             bt.nodes = ArrayUtility.Remove<Node>(bt.nodes, node);
-            BehaviorTreesEditorUtility.DestroyImmediate(node);
+            BehaviorTreeEditorUtility.DestroyImmediate(node);
         }
 
         public static void DestroyImmediate(ScriptableObject obj)
@@ -122,7 +122,7 @@ namespace UniBt.Editor
             Decorator decorator = ScriptableObject.CreateInstance(typeof(T)) as Decorator;
             decorator.hideFlags = HideFlags.HideInHierarchy;
 
-            decorator.Name = BehaviorTreesEditorUtility.GenerateName<T>();
+            decorator.Name = BehaviorTreeEditorUtility.GenerateName<T>();
             decorator.comment = decorator.Name;
             decorator.parent = parent;
             parent.decorators = ArrayUtility.Add<Decorator>(parent.decorators, decorator);
@@ -137,7 +137,7 @@ namespace UniBt.Editor
         public static void DeleteDecorator(Decorator decorator)
         {
             decorator.parent.decorators = ArrayUtility.Remove<Decorator>(decorator.parent.decorators, decorator);
-            BehaviorTreesEditorUtility.DestroyImmediate(decorator);
+            BehaviorTreeEditorUtility.DestroyImmediate(decorator);
         }
 
         public static T AddService<T>(Composite parent, BehaviorTree bt)
@@ -151,7 +151,7 @@ namespace UniBt.Editor
             Service service = ScriptableObject.CreateInstance(typeof(T)) as Service;
             service.hideFlags = HideFlags.HideInHierarchy;
 
-            service.Name = BehaviorTreesEditorUtility.GenerateName<T>();
+            service.Name = BehaviorTreeEditorUtility.GenerateName<T>();
             service.tick = 0.1f;
             service.comment = service.Name + ": tick every 0.1s";
             service.parent = parent;
@@ -167,7 +167,7 @@ namespace UniBt.Editor
         public static void DeleteService(Service service)
         {
             service.parent.services = ArrayUtility.Remove<Service>(service.parent.services, service);
-            BehaviorTreesEditorUtility.DestroyImmediate(service);
+            BehaviorTreeEditorUtility.DestroyImmediate(service);
         }
 
         public static EventType ReverseEvent(params Rect[] areas)
@@ -225,7 +225,7 @@ namespace UniBt.Editor
             GUILayout.BeginVertical(style);
             EditorGUIUtility.labelWidth = width;
 
-            if (BehaviorTreesEditorUtility.DrawHeader("Default", false))
+            if (BehaviorTreeEditorUtility.DrawHeader("Default", false))
             {
                 GUILayout.BeginHorizontal();
                 GUILayout.Space(7f);
@@ -240,7 +240,7 @@ namespace UniBt.Editor
             if (GUI.changed)
             {
                 EditorUtility.SetDirty(obj);
-                BehaviorTreesEditor.RepaintAll();
+                BehaviorTreeEditor.RepaintAll();
             }
         }
 

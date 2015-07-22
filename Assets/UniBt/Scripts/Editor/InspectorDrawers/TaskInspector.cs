@@ -19,26 +19,26 @@ namespace UniBt.Editor.Inspector
         public override void OnInspectorGUI()
         {
             string name = task.Name;
-            BehaviorTreesEditorUtility.BeginInspectorGUI(ref name);
+            BehaviorTreeEditorUtility.BeginInspectorGUI(ref name);
             if (name != task.Name)
             {
                 task.Name = name;
                 AssetDatabase.SaveAssets();
             }
             GUILayout.Space(7f);
-            if (BehaviorTreesEditorUtility.DrawHeader("Target Code", false))
+            if (BehaviorTreeEditorUtility.DrawHeader("Target Code", false))
             {
-                BehaviorTreesEditorUtility.DrawTargetScript(OnSelected, serializedObject);
-                if (task.targetScript != null && BehaviorTreesEditorUtility.DrawTargetMethod(task.targetScript.GetType(), typeof(System.IDisposable), typeof(IEnumerator), ref task.targetMethod))
+                BehaviorTreeEditorUtility.DrawTargetScript(OnSelected, serializedObject);
+                if (task.targetScript != null && BehaviorTreeEditorUtility.DrawTargetMethod(task.targetScript.GetType(), typeof(System.IDisposable), typeof(IEnumerator), ref task.targetMethod))
                 {
                     CheckMethod();
                     UpdateName();
                     UpdateComment();
-                    BehaviorTreesEditor.RepaintAll();
+                    BehaviorTreeEditor.RepaintAll();
                     AssetDatabase.SaveAssets();
                 }
             }
-            BehaviorTreesEditorUtility.EndInspectorGUI(node);
+            BehaviorTreeEditorUtility.EndInspectorGUI(node);
         }
 
         private void OnSelected(Object obj)

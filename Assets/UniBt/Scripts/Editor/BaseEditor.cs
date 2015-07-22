@@ -100,15 +100,15 @@ namespace UniBt.Editor
 
             Rect btRect = new Rect(_canvasSize);
             btRect.x += Mathf.Round(_scrollPosition.x);
-            btRect.y += Mathf.Round(_scrollPosition.y) + _canvasSize.height - BehaviorTreesEditorStyles.btLabel.CalcSize(new GUIContent("BEHAVIOR TREE")).y * 1.3f;
-            GUI.Label(btRect, "BEHAVIOR TREE", BehaviorTreesEditorStyles.btLabel);
+            btRect.y += Mathf.Round(_scrollPosition.y) + _canvasSize.height - BehaviorTreeEditorStyles.btLabel.CalcSize(new GUIContent("BEHAVIOR TREE")).y * 1.3f;
+            GUI.Label(btRect, "BEHAVIOR TREE", BehaviorTreeEditorStyles.btLabel);
 
             if (EditorApplication.isPlayingOrWillChangePlaymode)
             {
                 Rect simulatingRect = new Rect(_canvasSize);
                 simulatingRect.x += Mathf.Round(_scrollPosition.x);
-                simulatingRect.y += Mathf.Round(_scrollPosition.y) - BehaviorTreesEditorStyles.btLabel.CalcSize(new GUIContent("SIMULATING")).y * 0.3f;
-                GUI.Label(simulatingRect, "SIMULATING", BehaviorTreesEditorStyles.simulatingLabel);
+                simulatingRect.y += Mathf.Round(_scrollPosition.y) - BehaviorTreeEditorStyles.btLabel.CalcSize(new GUIContent("SIMULATING")).y * 0.3f;
+                GUI.Label(simulatingRect, "SIMULATING", BehaviorTreeEditorStyles.simulatingLabel);
             }
 
             GUI.EndScrollView();

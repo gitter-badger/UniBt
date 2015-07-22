@@ -60,10 +60,10 @@ namespace UniBt.Editor
             insideMainNode.xMax -= 7;
             insideMainNode.yMin = sharedHeight;
             insideMainNode.yMax = sharedHeight + 32 + GetCommentHeight(node.comment);
-            GUIStyle insideMainNodeStyle = BehaviorTreesEditorStyles.GetNodeStyle(boxColor, false);
+            GUIStyle insideMainNodeStyle = BehaviorTreeEditorStyles.GetNodeStyle(boxColor, false);
             GUI.Box(insideMainNode, "", insideMainNodeStyle);
 
-            int? myIndex = BehaviorTreesEditorUtility.GetMyIndex(node);
+            int? myIndex = BehaviorTreeEditorUtility.GetMyIndex(node);
             if (myIndex != null)
             {
                 float circleIconWidth = circleIcon.width * 1.1f;
@@ -72,7 +72,7 @@ namespace UniBt.Editor
                 GUI.DrawTexture(indexRect, circleIcon);
                 indexRect.xMin -= 2;
                 indexRect.yMin -= 2;
-                GUI.Label(indexRect, "<color=white>" + (myIndex + 1).ToString() + "</color>", BehaviorTreesEditorStyles.nodeIndexLabel);
+                GUI.Label(indexRect, "<color=white>" + (myIndex + 1).ToString() + "</color>", BehaviorTreeEditorStyles.nodeIndexLabel);
             }
 
             Rect iconRect = node.position;
@@ -84,14 +84,14 @@ namespace UniBt.Editor
             nameRect.x = node.position.xMin + 42;
             nameRect.y = sharedHeight + 5;
 
-            GUI.Label(nameRect, "<color=white>" + node.Name + "</color>", BehaviorTreesEditorStyles.nodeBoxNameNormalStyle);
+            GUI.Label(nameRect, "<color=white>" + node.Name + "</color>", BehaviorTreeEditorStyles.nodeBoxNameNormalStyle);
 
             GUIContent commentContent = new GUIContent(node.comment);
             Rect commentRect = node.position;
             commentRect.x = node.position.xMin + 7;
             commentRect.y = sharedHeight + 30;
-            commentRect.width = BehaviorTreesEditorStyles.nodeBoxCommentStyle.CalcSize(commentContent).x + 10;
-            GUI.Label(commentRect, "<color=white>" + node.comment + "</color>", BehaviorTreesEditorStyles.nodeBoxCommentStyle);
+            commentRect.width = BehaviorTreeEditorStyles.nodeBoxCommentStyle.CalcSize(commentContent).x + 10;
+            GUI.Label(commentRect, "<color=white>" + node.comment + "</color>", BehaviorTreeEditorStyles.nodeBoxCommentStyle);
 
             sharedHeight += insideMainNode.yMax - insideMainNode.yMin + 5;
             DrawServices(node, sharedHeight);
@@ -109,9 +109,9 @@ namespace UniBt.Editor
                 decoratorRect.yMin = height;
                 decoratorRect.yMax = height + 32 + GetCommentHeight(decorator.comment);
 
-                GUIStyle decoratorStyle = BehaviorTreesEditorStyles.GetNodeStyle((int)NodeColor.Blue, BehaviorTreesEditor.CompareSelectedDecorators(decorator));
+                GUIStyle decoratorStyle = BehaviorTreeEditorStyles.GetNodeStyle((int)NodeColor.Blue, BehaviorTreeEditor.CompareSelectedDecorators(decorator));
                 if (EditorApplication.isPlaying)
-                    decoratorStyle = BehaviorTreesEditorStyles.GetNodeStyle(BehaviorTreesEditor.CheckThisDecoratorClosed(decorator) ? (int)NodeColor.Red : (int)NodeColor.Blue, BehaviorTreesEditor.CompareSelectedDecorators(decorator));
+                    decoratorStyle = BehaviorTreeEditorStyles.GetNodeStyle(BehaviorTreeEditor.CheckThisDecoratorClosed(decorator) ? (int)NodeColor.Red : (int)NodeColor.Blue, BehaviorTreeEditor.CompareSelectedDecorators(decorator));
                 GUI.Box(decoratorRect, "", decoratorStyle);
 
                 Rect decoratorIconRect = node.position;
@@ -122,14 +122,14 @@ namespace UniBt.Editor
                 Rect decoratorNameRect = node.position;
                 decoratorNameRect.x = node.position.xMin + 42;
                 decoratorNameRect.y = height + 5;
-                GUI.Label(decoratorNameRect, "<color=white>" + decorator.Name + "</color>", BehaviorTreesEditorStyles.nodeBoxNameNormalStyle);
+                GUI.Label(decoratorNameRect, "<color=white>" + decorator.Name + "</color>", BehaviorTreeEditorStyles.nodeBoxNameNormalStyle);
 
                 GUIContent decoratorCommentContent = new GUIContent(decorator.comment);
                 Rect decoratorCommentRect = node.position;
                 decoratorCommentRect.x = node.position.xMin + 7;
                 decoratorCommentRect.y = height + 30;
-                decoratorCommentRect.width = BehaviorTreesEditorStyles.nodeBoxCommentStyle.CalcSize(decoratorCommentContent).x + 10;
-                GUI.Label(decoratorCommentRect, "<color=white>" + decorator.comment + "</color>", BehaviorTreesEditorStyles.nodeBoxCommentStyle);
+                decoratorCommentRect.width = BehaviorTreeEditorStyles.nodeBoxCommentStyle.CalcSize(decoratorCommentContent).x + 10;
+                GUI.Label(decoratorCommentRect, "<color=white>" + decorator.comment + "</color>", BehaviorTreeEditorStyles.nodeBoxCommentStyle);
 
                 height += decoratorRect.yMax - decoratorRect.yMin + 5;
             }
@@ -149,7 +149,7 @@ namespace UniBt.Editor
                     serviceRect.xMax -= 7;
                     serviceRect.yMin = height;
                     serviceRect.yMax = height + 32 + GetCommentHeight(service.comment);
-                    GUIStyle serviceStyle = BehaviorTreesEditorStyles.GetNodeStyle((int)NodeColor.Aqua, BehaviorTreesEditor.CompareSelectedServices(service));
+                    GUIStyle serviceStyle = BehaviorTreeEditorStyles.GetNodeStyle((int)NodeColor.Aqua, BehaviorTreeEditor.CompareSelectedServices(service));
                     GUI.Box(serviceRect, "", serviceStyle);
 
                     Rect serviceIconRect = node.position;
@@ -160,14 +160,14 @@ namespace UniBt.Editor
                     Rect serviceNameRect = node.position;
                     serviceNameRect.x = node.position.xMin + 42 + 13;
                     serviceNameRect.y = height + 5;
-                    GUI.Label(serviceNameRect, "<color=white>" + service.Name + "</color>", BehaviorTreesEditorStyles.nodeBoxNameNormalStyle);
+                    GUI.Label(serviceNameRect, "<color=white>" + service.Name + "</color>", BehaviorTreeEditorStyles.nodeBoxNameNormalStyle);
 
                     GUIContent serviceCommentContent = new GUIContent(service.comment);
                     Rect serviceCommentRect = node.position;
                     serviceCommentRect.x = node.position.xMin + 7 + 13;
                     serviceCommentRect.y = height + 30;
-                    serviceCommentRect.width = BehaviorTreesEditorStyles.nodeBoxCommentStyle.CalcSize(serviceCommentContent).x + 10;
-                    GUI.Label(serviceCommentRect, "<color=white>" + service.comment + "</color>", BehaviorTreesEditorStyles.nodeBoxCommentStyle);
+                    serviceCommentRect.width = BehaviorTreeEditorStyles.nodeBoxCommentStyle.CalcSize(serviceCommentContent).x + 10;
+                    GUI.Label(serviceCommentRect, "<color=white>" + service.comment + "</color>", BehaviorTreeEditorStyles.nodeBoxCommentStyle);
                 }
             }
         }
@@ -208,12 +208,12 @@ namespace UniBt.Editor
 
         private static float GetNameWidth(string name)
         {
-            return BehaviorTreesEditorStyles.nodeBoxNameNormalStyle.CalcSize(new GUIContent(name)).x;
+            return BehaviorTreeEditorStyles.nodeBoxNameNormalStyle.CalcSize(new GUIContent(name)).x;
         }
 
         private static float GetCommentWidth(string comment)
         {
-            return BehaviorTreesEditorStyles.nodeBoxCommentStyle.CalcSize(new GUIContent(comment)).x;
+            return BehaviorTreeEditorStyles.nodeBoxCommentStyle.CalcSize(new GUIContent(comment)).x;
         }
 
         public static float GetMaxHeightContents(Node node)
@@ -243,8 +243,8 @@ namespace UniBt.Editor
         public static float GetCommentHeight(string comment)
         {
             GUIContent content = new GUIContent(comment);
-            float width = BehaviorTreesEditorStyles.nodeBoxCommentStyle.CalcSize(content).x + 10;
-            return BehaviorTreesEditorStyles.nodeBoxCommentStyle.CalcHeight(content, width);
+            float width = BehaviorTreeEditorStyles.nodeBoxCommentStyle.CalcSize(content).x + 10;
+            return BehaviorTreeEditorStyles.nodeBoxCommentStyle.CalcHeight(content, width);
         }
     }
 }

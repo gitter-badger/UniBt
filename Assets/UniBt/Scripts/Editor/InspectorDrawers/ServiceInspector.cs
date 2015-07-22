@@ -16,31 +16,31 @@ namespace UniBt.Editor.Inspector
         public override void OnInspectorGUI()
         {
             string name = service.Name;
-            BehaviorTreesEditorUtility.BeginInspectorGUI(ref name);
+            BehaviorTreeEditorUtility.BeginInspectorGUI(ref name);
             if (name != service.Name)
             {
                 service.Name = name;
                 AssetDatabase.SaveAssets();
             }
             GUILayout.Space(7f);
-            if (BehaviorTreesEditorUtility.DrawHeader("Target Code", false))
+            if (BehaviorTreeEditorUtility.DrawHeader("Target Code", false))
             {
-                BehaviorTreesEditorUtility.DrawTargetScript(OnSelected, serializedObject);
-                if (service.targetScript != null && BehaviorTreesEditorUtility.DrawTargetMethod(service.targetScript.GetType(), typeof(void), ref service.targetMethod))
+                BehaviorTreeEditorUtility.DrawTargetScript(OnSelected, serializedObject);
+                if (service.targetScript != null && BehaviorTreeEditorUtility.DrawTargetMethod(service.targetScript.GetType(), typeof(void), ref service.targetMethod))
                 {
                     UpdateName();
                     UpdateComment();
-                    BehaviorTreesEditor.RepaintAll();
+                    BehaviorTreeEditor.RepaintAll();
                     AssetDatabase.SaveAssets();
                     EditorGUILayout.Space();
                 }
             }
             GUILayout.Space(7f);
-            if (BehaviorTreesEditorUtility.DrawHeader("Service", false))
+            if (BehaviorTreeEditorUtility.DrawHeader("Service", false))
             {
                 DrawTick();
             }
-            BehaviorTreesEditorUtility.EndInspectorGUI(service);
+            BehaviorTreeEditorUtility.EndInspectorGUI(service);
         }
 
         private void OnSelected(Object obj)

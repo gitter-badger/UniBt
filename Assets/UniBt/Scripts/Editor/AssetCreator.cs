@@ -13,7 +13,7 @@ namespace UniBt.Editor
             if (bt != null)
             {
                 bt.Name = bt.name;
-                Root root = BehaviorTreesEditorUtility.AddNode<Root>(BehaviorTreesEditor.center, bt);
+                Root root = BehaviorTreeEditorUtility.AddNode<Root>(BehaviorTreeEditor.center, bt);
                 bt.rootNode = root;
                 root.Name = "Root";
                 AssetDatabase.SaveAssets();

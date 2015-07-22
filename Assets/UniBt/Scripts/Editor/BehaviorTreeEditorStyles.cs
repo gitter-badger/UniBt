@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace UniBt.Editor
 {
-    public static class BehaviorTreesEditorStyles
+    public static class BehaviorTreeEditorStyles
     {
         public const float NodeNormalWidth = 150f;
         public const float NodeNormalHeight = 70f;
@@ -30,9 +30,9 @@ namespace UniBt.Editor
             "flow node 6"
         };
 
-        static BehaviorTreesEditorStyles()
+        static BehaviorTreeEditorStyles()
         {
-            BehaviorTreesEditorStyles.nodeStyleCache = new Dictionary<string, GUIStyle>();
+            BehaviorTreeEditorStyles.nodeStyleCache = new Dictionary<string, GUIStyle>();
 
             nodeBoxNameNormalStyle = "TL Selection H2";
             nodeBoxNameNormalStyle.alignment = TextAnchor.UpperLeft;
@@ -72,7 +72,7 @@ namespace UniBt.Editor
         private static GUIStyle GetNodeStyle(string styleName, bool on, float offset)
         {
             string str = on ? string.Concat(styleName, " on") : styleName;
-            if (!BehaviorTreesEditorStyles.nodeStyleCache.ContainsKey(str))
+            if (!BehaviorTreeEditorStyles.nodeStyleCache.ContainsKey(str))
             {
                 GUIStyle style = new GUIStyle(str);
                 style.contentOffset = new Vector2(0, style.contentOffset.y - offset);

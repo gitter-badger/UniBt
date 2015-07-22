@@ -17,18 +17,18 @@ namespace UniBt.Editor.Inspector
         public override void OnInspectorGUI()
         {
             string name = wait.Name;
-            BehaviorTreesEditorUtility.BeginInspectorGUI(ref name);
+            BehaviorTreeEditorUtility.BeginInspectorGUI(ref name);
             if (name != wait.Name)
             {
                 wait.Name = name;
                 AssetDatabase.SaveAssets();
             }
             GUILayout.Space(7f);
-            if (BehaviorTreesEditorUtility.DrawHeader("Wait Time", false))
+            if (BehaviorTreeEditorUtility.DrawHeader("Wait Time", false))
             {
                 DrawTick();
             }
-            BehaviorTreesEditorUtility.EndInspectorGUI(node);
+            BehaviorTreeEditorUtility.EndInspectorGUI(node);
         }
 
         private void DrawTick()
