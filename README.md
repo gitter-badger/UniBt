@@ -3,20 +3,18 @@
 During the development there will be a lot of changes.
 So during the development period, it will **NEVER RECOMMEND** that you apply these assets to your project.
 
-If the formal version(or development has been a lot of versions) is released, this repository is moving to **GitHub**.
-
 
 UniBt - UE4 style Behavior Trees for Unity
 =========================================================
 **Welcome to the UniBt source code!**
 
-This is the source code page for the **UniBt on BitBucket**.
+This is the source code page for the **UniBt on GitHub**.
 With the UniBt source code, you can modifiy the source code in any way imaginable and share your changes with others!
 Before continuing, check out [this article](#what-is-unibt).
 
 **Welcome your pull requests!**
 
-The reason for uploading this source code to BitBucket, it is because I think the UniBt's source code to your many contributions to be upgraded.
+The reason for uploading this source code to GitHub, it is because I think the UniBt's source code to your many contributions to be upgraded.
 Please be to the many pull requests!
 I always look forward to your pull requests.
 
