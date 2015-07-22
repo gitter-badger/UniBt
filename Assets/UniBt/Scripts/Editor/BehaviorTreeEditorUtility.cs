@@ -263,10 +263,8 @@ namespace UniBt.Editor
         {
             GUILayout.BeginHorizontal();
             GUILayout.Space(7f);
-            GUILayout.Label("Target Method:");
 
             List<string> methodList = new List<string>();
-
             MethodInfo[] methods = scriptType.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly);
             int oldMethodIndex = 0;
             for (int i = 0; i < methods.Length; i++)
@@ -295,7 +293,7 @@ namespace UniBt.Editor
 
             if (methodList.Count > 0)
             {
-                int methodIndex = EditorGUILayout.Popup(oldMethodIndex, methodList.ToArray());
+                int methodIndex = EditorGUILayout.Popup("Target Method", oldMethodIndex, methodList.ToArray());
                 if (currentMethod != methodList[methodIndex])
                 {
                     currentMethod = methodList[methodIndex];
