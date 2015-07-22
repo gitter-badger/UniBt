@@ -29,6 +29,7 @@ MonoBehaviour:
   - {fileID: 11412418}
   - {fileID: 11416926}
   - {fileID: 11488168}
+  - {fileID: 11455600}
   _rootNode: {fileID: 11418430}
 --- !u!114 &11412418
 MonoBehaviour:
@@ -110,6 +111,31 @@ MonoBehaviour:
   _childNodes:
   - {fileID: 11488168}
   _decorators: []
+--- !u!114 &11455600
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28fd1e626c8bca94d9ada7a6d04c11c4, type: 3}
+  m_Name: Sequence
+  m_EditorClassIdentifier: 
+  position:
+    serializedVersion: 2
+    x: 25443
+    y: 25254
+    width: 150
+    height: 70
+  comment: Sequence
+  _parent: {fileID: 0}
+  _parentNode: {fileID: 0}
+  _name: Sequence
+  _bt: {fileID: 11400000}
+  _childNodes: []
+  _decorators: []
+  _services: []
 --- !u!114 &11474052
 MonoBehaviour:
   m_ObjectHideFlags: 1
